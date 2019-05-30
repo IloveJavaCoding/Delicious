@@ -182,7 +182,7 @@
                 android:id="@+id/IR4"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/noodle"
+                android:src="@drawable/noodle1"
                 android:scaleType="centerCrop"/>
 
             <TextView
