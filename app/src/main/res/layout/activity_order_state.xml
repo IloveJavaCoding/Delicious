@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Order_state">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/colorTheme"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3dp"
+            android:text="CONGRATULATIONS"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#02B7FF">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Your order is sent to restaurant successfully!"
+            android:textAlignment="center"
+            android:textStyle="italic"
+            android:textSize="23dp"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:text="Your order number is:"
+            android:textStyle="italic"
+            android:textSize="23dp"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/Torder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="XDS142857"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:textSize="25dp"
+            android:padding="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="5dp">
+            <ImageView
+                android:id="@+id/lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/cao1"
+                android:scaleType="centerInside"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Please show this number at the counter of restaurant to pay and get your food!"
+            android:textAlignment="center"
+            android:textSize="23dp"
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="Enjoy it!"
+            android:textStyle="bold"
+            android:fontFamily="cursive"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/Btohome"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:text="Back to Home"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorTheme"/>
+
+    </LinearLayout>
+
+</LinearLayout>

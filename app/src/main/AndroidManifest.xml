@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.foodui">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".History.Order_history"></activity>
+        <activity android:name=".Myorder" />
+        <activity android:name=".Noodle.Restaurant2" />
+        <activity android:name=".Search_page" />
+        <activity android:name=".Order_state" />
+        <activity android:name=".Check.Check" />
+        <activity android:name=".Cart.cart" />
+        <activity android:name=".Milktea.Restaurant1" />
+        <activity android:name=".Homepage" />
+        <activity android:name=".Logout3" />
+        <activity android:name=".Logout2" />
+        <activity android:name=".Logout1" />
+        <activity android:name=".Registerpag" />
+        <activity android:name=".Loginpag" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

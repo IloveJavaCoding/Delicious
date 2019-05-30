@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Homepage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/colorTheme"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Daily"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp" />
+
+        <ImageView
+            android:id="@+id/Isearch"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:src="@drawable/search"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitCenter"/>
+
+        <ImageView
+            android:id="@+id/Iusername"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/username"
+            android:gravity="right"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Promotion"
+        android:textColor="@color/colorText"
+        android:textSize="22dp"
+        android:padding="10dp"
+        android:fontFamily="casual"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FEBCD5">
+
+        <ImageView
+            android:id="@+id/Iad"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/prompt" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Look for something as"
+        android:textColor="@color/colorText"
+        android:textSize="22dp"
+        android:padding="10dp"
+        android:fontFamily="sans-serif-condensed-light" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp">
+
+            <ImageView
+                android:id="@+id/IR1"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/tea"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:id="@+id/TR1"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Milktea"
+                android:textStyle="bold"
+                android:textColor="#78AF43"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed-light" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp">
+
+            <ImageView
+                android:id="@+id/IR2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/cafe"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/TR2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Coffee House"
+                android:textStyle="bold"
+                android:textColor="#5B0605"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed-light" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp">
+
+            <ImageView
+                android:id="@+id/IR3"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/rice"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/TR3"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Restaurant"
+                android:textStyle="bold"
+                android:textColor="#CF200E"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed-light" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp">
+
+            <ImageView
+                android:id="@+id/IR4"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/noodle"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/TR4"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Noodle House"
+                android:textStyle="bold"
+                android:textColor="#B60207"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-condensed-light" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
