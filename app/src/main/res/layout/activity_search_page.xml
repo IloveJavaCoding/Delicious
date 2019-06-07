@@ -20,11 +20,11 @@
             android:id="@+id/Esearch"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="5dp"
-            android:layout_weight="1"
             android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/frame2"
             android:hint="search food, restarant"
-            android:background="@drawable/frame2"/>
+            android:padding="5dp" />
 
         <TextView
             android:id="@+id/Tsearch"

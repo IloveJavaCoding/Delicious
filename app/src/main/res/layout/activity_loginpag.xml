@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/bc"
     android:padding="15dp"
-    tools:context=".Loginpag">
+    tools:context=".Sign_In.Loginpag">
 
     <TextView
         android:id="@+id/textView"

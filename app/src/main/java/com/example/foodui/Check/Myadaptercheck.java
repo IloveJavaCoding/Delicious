@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodui.Cart.Myadaptercart;
 import com.example.foodui.R;
 
 public class Myadaptercheck extends BaseAdapter {

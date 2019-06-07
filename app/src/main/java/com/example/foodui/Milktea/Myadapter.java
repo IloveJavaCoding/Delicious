@@ -21,7 +21,7 @@ public class Myadapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return 3;
+        return 6;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.foodui.Cart;
+package com.example.foodui.Myorder;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,20 +9,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodui.Noodle.Myadapter2;
 import com.example.foodui.R;
 
-public class Myadaptercart extends BaseAdapter {
+public class Myadapterorder extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
 
-    public Myadaptercart(Context context){
+    public Myadapterorder(Context context){
         this.context=context;
         inflater = LayoutInflater.from(context);
     }
     @Override
     public int getCount() {
-        return 3;
+        return 3;//set
     }
 
     @Override
@@ -34,22 +33,20 @@ public class Myadaptercart extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-
     static class ViewHolder{
-        public ImageView IV,Iadd,Imin;
-        public TextView Tfname,Tprice,Tnum;
+        public ImageView Img;
+        public TextView Tsname,Tfname,Tprice,Tnum;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
         if(convertView==null){
-            convertView=inflater.inflate(R.layout.layout_cart,null);
+            convertView=inflater.inflate(R.layout.layout_order,null);
             holder = new ViewHolder();
-            holder.IV = (ImageView)convertView.findViewById(R.id.Ifood);
-            holder.Imin = (ImageView)convertView.findViewById(R.id.Imin);
-            holder.Iadd = (ImageView)convertView.findViewById(R.id.Iadd);
-            holder.Tfname = (TextView)convertView.findViewById(R.id.Tname);
+            holder.Img = (ImageView)convertView.findViewById(R.id.Ifood);
+            holder.Tsname = (TextView)convertView.findViewById(R.id.Tshop);
+            holder.Tfname = (TextView)convertView.findViewById(R.id.Tfname);
             holder.Tprice = (TextView)convertView.findViewById(R.id.Tprice);
             holder.Tnum = (TextView)convertView.findViewById(R.id.Tnum);
 
@@ -57,9 +54,10 @@ public class Myadaptercart extends BaseAdapter {
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.Tfname.setText("Food "+(position+1));
+        //set relative value
 
-        Glide.with(context).load("https://pokemon.gameinfo.io/images/pokemon-go/470-00.png").into(holder.IV);
+        Glide.with(context).load("https://pokemon.gameinfo.io/images/pokemon-go/470-00.png").into(holder.Img);
+
         return convertView;
     }
 }

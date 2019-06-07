@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#02B7FF">
+        android:background="#8DFFEB3B">
 
         <TextView
             android:id="@+id/tv1"
@@ -60,7 +60,7 @@
             android:textAlignment="center"
             android:text="XDS142857"
             android:textStyle="bold"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorTheme"
             android:textSize="25dp"
             android:padding="5dp" />
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Cart.cart">
+    tools:context=".Cart.Cart">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,16 +46,18 @@
         android:background="@drawable/underline2"/>
 
     <ListView
-        android:id="@+id/LV"
+        android:id="@+id/LVc"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:divider="@color/colorText">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:dividerHeight="1dp"
+        android:divider="@color/colorTheme">
     </ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -95,13 +97,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="15dp"
+                android:padding="5dp"
                 android:layout_weight="1">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="10dp">
+                    android:orientation="horizontal">
                     <TextView
                         android:id="@+id/T1"
                         android:layout_width="wrap_content"
@@ -123,8 +124,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="10dp">
+                    android:orientation="horizontal">
                     <TextView
                         android:id="@+id/Trm"
                         android:layout_width="wrap_content"
@@ -146,7 +146,7 @@
                     android:id="@+id/Torip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="5dp"
                     android:layout_gravity="right"
                     android:text="15.00"
                     android:background="@drawable/underline2"
@@ -154,6 +154,7 @@
                     android:textSize="20dp" />
 
                 <Button
+                    android:id="@+id/Ball"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorText"

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.foodui.Noodle.Myadapter2;
 import com.example.foodui.R;
 
 public class Myadapterh extends BaseAdapter {
