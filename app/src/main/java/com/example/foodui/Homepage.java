@@ -1,10 +1,12 @@
 package com.example.foodui;
 
 import android.content.Intent;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.foodui.Milktea.Restaurant1;
@@ -14,6 +16,8 @@ public class Homepage extends AppCompatActivity {
     private ImageView Isearch, Iuser;
     private ImageView Miketea, Coffee, Restaurant, Noodle;
     private TextView TMiketea, TCoffee, TRestaurant, TNoodle;
+    private TableLayout Tab;
+    private ViewPager vip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +25,8 @@ public class Homepage extends AppCompatActivity {
 
         Isearch = (ImageView) findViewById(R.id.Isearch);
         Iuser = (ImageView) findViewById(R.id.Iusername);
+
+        Init();
 
         Miketea = (ImageView) findViewById(R.id.IR1);
         TMiketea = (TextView) findViewById(R.id.TR1);
@@ -33,6 +39,13 @@ public class Homepage extends AppCompatActivity {
 
         SetListener();
     }
+
+    private void Init() {
+        Tab = (TableLayout) findViewById(R.id.tab);
+        vip = (ViewPager)findViewById(R.id.view);
+
+    }
+
     private void SetListener() {
         OnClick onclick = new OnClick();
         Isearch.setOnClickListener(onclick);

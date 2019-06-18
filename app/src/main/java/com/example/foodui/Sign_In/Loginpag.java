@@ -36,7 +36,7 @@ public class Loginpag extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;//"http://10.66.93.241:8080/member/db/login.php";
-    private String login_url = "http://10.66.93.27:80/member/db/login.php";
+    private String login_url = "http://10.66.93.27:80/member/db/login.php";//10.71.0.203//10.66.93.27
     private SessionHandler session;
 
     @Override
