@@ -1,6 +1,8 @@
 package com.example.foodui;
 
-public class Shop_Info {
+import java.io.Serializable;
+
+public class Shop_Info implements Serializable {
     private String id;
     private String shop_name;
     private String genre;

@@ -9,7 +9,7 @@
             android:id="@+id/Ifood"
             android:layout_width="200dp"
             android:layout_height="120dp"
-            android:src="@drawable/cao1"
+            android:src="@drawable/cao"
             android:scaleType="fitCenter"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                 android:layout_width="30dp"
                 android:layout_marginRight="10dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/add2"
+                android:src="@drawable/add"
                 android:scaleType="centerCrop"/>
         </LinearLayout>
     </LinearLayout>

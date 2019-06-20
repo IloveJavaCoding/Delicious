@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.foodui.Homepage;
+import com.example.foodui.MySingleton;
 import com.example.foodui.R;
 
 import org.json.JSONException;
@@ -37,7 +38,8 @@ public class Registerpag extends AppCompatActivity {
     private String confirmPassword;
     private String fullName;
     private ProgressDialog pDialog;
-    private String register_url = "http://10.71.0.203:80/member/db/register.php";
+    private String register_url = "http://10.66.93.27:80/delicious/db/register.php";
+   // private String register_url = "http://10.71.0.203:80/delicious/db/register.php";
     private SessionHandler session;
 
     @Override

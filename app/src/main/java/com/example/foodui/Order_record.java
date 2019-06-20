@@ -1,8 +1,9 @@
 package com.example.foodui;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Order_record {
+public class Order_record implements Serializable {
     private String shop_name;
     private String iteam_name;
     private double price;

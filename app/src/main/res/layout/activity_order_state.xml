@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#8DFFEB3B">
+        android:background="#BCF0D414">
 
         <TextView
             android:id="@+id/tv1"
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:src="@drawable/cao1"
+                android:src="@drawable/smile"
                 android:scaleType="centerInside"/>
         </LinearLayout>
 

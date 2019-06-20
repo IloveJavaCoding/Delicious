@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.foodui.Homepage;
+import com.example.foodui.MySingleton;
 import com.example.foodui.R;
 
 import org.json.JSONException;
@@ -36,7 +37,8 @@ public class Loginpag extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;//"http://10.66.93.241:8080/member/db/login.php";
-    private String login_url = "http://10.66.93.27:80/member/db/login.php";//10.71.0.203//10.66.93.27
+    private String login_url = "http://10.66.93.27:80/delicious/db/login.php";
+    //private String login_url = "http://10.71.0.203:80/delicious/db/login.php";//10.71.0.203//10.66.93.27
     private SessionHandler session;
 
     @Override
@@ -82,7 +84,6 @@ public class Loginpag extends AppCompatActivity {
                 if(validateInputs()){
                     login();
                 }
-
             }
         });
     }
@@ -158,6 +159,6 @@ public class Loginpag extends AppCompatActivity {
             moveTaskToBack(true);
             return true;
         }
-        return super.onKeyDown(keyCode, event);//coontinue other things
+        return super.onKeyDown(keyCode, event);//continue other things
     }
 }

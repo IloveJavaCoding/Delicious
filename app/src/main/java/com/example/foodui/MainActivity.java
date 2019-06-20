@@ -4,15 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.ProgressBar;
 
 import com.example.foodui.Sign_In.Loginpag;
 
 public class MainActivity extends AppCompatActivity {
-
+    private ProgressBar dia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dia = (ProgressBar)findViewById(R.id.bar);
 
         new Thread(){
             @Override
@@ -22,13 +25,12 @@ public class MainActivity extends AppCompatActivity {
                     Thread.sleep(3000);
                     Intent intent = new Intent(MainActivity.this, Loginpag.class);
                     startActivity(intent);
+                    //dia.setVisibility(View.INVISIBLE);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }.start();
-
-
     }
 
     @Override

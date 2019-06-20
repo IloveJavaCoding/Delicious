@@ -40,26 +40,17 @@
             android:gravity="right"/>
     </LinearLayout>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FEBCD5"/>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-    </android.support.v4.view.ViewPager>
-
-    <ImageView
-        android:id="@+id/Iad"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/prompt" />
-
+        android:background="#FFABC9">
+        <ImageView
+            android:id="@+id/Iad"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/prompt" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tv"
@@ -70,6 +61,15 @@
         android:textSize="22dp"
         android:padding="10dp"
         android:fontFamily="sans-serif-condensed-light" />
+
+    <ProgressBar
+        android:id="@+id/bar"
+        style="?android:attr/progressBarStyleLargeInverse"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/colorText"
+        android:layout_gravity="center"
+        android:visibility="visible"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,7 +89,6 @@
                 android:id="@+id/IR1"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/tea"
                 android:scaleType="fitCenter"/>
 
             <TextView
@@ -98,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Milktea"
+                android:text="..."
                 android:textStyle="bold"
                 android:textColor="#78AF43"
                 android:textSize="18dp"
@@ -116,7 +115,6 @@
                 android:id="@+id/IR2"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/cafe"
                 android:scaleType="centerCrop"/>
 
             <TextView
@@ -125,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Coffee House"
+                android:text="..."
                 android:textStyle="bold"
                 android:textColor="#5B0605"
                 android:textSize="18dp"
@@ -152,7 +150,6 @@
                 android:id="@+id/IR3"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/rice"
                 android:scaleType="centerCrop"/>
 
             <TextView
@@ -161,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Restaurant"
+                android:text="..."
                 android:textStyle="bold"
                 android:textColor="#CF200E"
                 android:textSize="18dp"
@@ -179,7 +176,6 @@
                 android:id="@+id/IR4"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/noodle1"
                 android:scaleType="centerCrop"/>
 
             <TextView
@@ -188,7 +184,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Noodle House"
+                android:text="..."
                 android:textStyle="bold"
                 android:textColor="#B60207"
                 android:textSize="18dp"
