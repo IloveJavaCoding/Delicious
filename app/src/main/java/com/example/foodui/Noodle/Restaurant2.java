@@ -14,7 +14,6 @@ import com.example.foodui.Cart.Cart;
 import com.example.foodui.Homepage;
 import com.example.foodui.Item_info;
 import com.example.foodui.Logout1;
-import com.example.foodui.Milktea.Restaurant1;
 import com.example.foodui.R;
 import com.example.foodui.Shop_Info;
 

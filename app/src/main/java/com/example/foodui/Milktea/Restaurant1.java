@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.foodui.Cart.Cart;
 import com.example.foodui.Homepage;
@@ -16,8 +17,9 @@ import com.example.foodui.Logout1;
 import com.example.foodui.R;
 import com.example.foodui.Shop_Info;
 
-public class Restaurant1 extends AppCompatActivity {
+public class Restaurant1 extends AppCompatActivity implements Myadapter.InnerClickListener {
     private GridView gridView;
+    private Myadapter adapter;
     private ImageView Iback, Isearch, Iuser, Ilogo;
     private Button Bdetail;
     private TextView Sname,Srate,Stime;
@@ -36,10 +38,14 @@ public class Restaurant1 extends AppCompatActivity {
 
         sh = shop[index];
         items  = (Item_info[])bundle.getSerializable("item") ;
-        //------------------------------------------------
-        gridView =(GridView)findViewById(R.id.GV);
-        gridView.setAdapter(new Myadapter(Restaurant1.this,items));
 
+        //------------------------------------------------------
+        gridView =(GridView)findViewById(R.id.GV);
+        adapter = new Myadapter(Restaurant1.this,items);
+        adapter.setInneClickListener(this);
+        gridView.setAdapter(adapter);
+
+        //-----------------------------------------------------
         Iback = (ImageView)findViewById(R.id.Iback);
         Iuser = (ImageView)findViewById(R.id.Iuser);
         Bdetail = (Button)findViewById(R.id.Bdetail);
@@ -61,8 +67,8 @@ public class Restaurant1 extends AppCompatActivity {
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
-
         //---------------------------------------------------------
+
         Iback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,5 +90,19 @@ public class Restaurant1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void itemClick(View v) {
+        switch(v.getId()){
+            case R.id.Imin:
+                Toast.makeText(getApplicationContext(),"min",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.Iadd:
+                Toast.makeText(getApplicationContext(),"add",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 }

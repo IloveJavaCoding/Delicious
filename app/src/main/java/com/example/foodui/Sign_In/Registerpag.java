@@ -13,7 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.foodui.Homepage;
+import com.example.foodui.Loading;
 import com.example.foodui.MySingleton;
 import com.example.foodui.R;
 
@@ -66,7 +66,6 @@ public class Registerpag extends AppCompatActivity {
         Bregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //register;
                 username = etUsername.getText().toString().toLowerCase().trim();
                 password = etPassword.getText().toString().trim();
                 confirmPassword = etConfirmPassword.getText().toString().trim();
@@ -74,7 +73,6 @@ public class Registerpag extends AppCompatActivity {
                 if(validateInputs()){
                     registerUser();
                 }
-                //valide
             }
         });
     }
@@ -88,7 +86,7 @@ public class Registerpag extends AppCompatActivity {
     }
 
     private void loadDashboard(){
-        Intent intent = new Intent(Registerpag.this, Homepage.class);
+        Intent intent = new Intent(Registerpag.this, Loading.class);
         Toast.makeText(Registerpag.this,"register successfully!",Toast.LENGTH_SHORT).show();
         startActivity(intent);
         finish();

@@ -10,12 +10,14 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:name=".Controls"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Sign_In.Forgetpage"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Loading"></activity>
+        <activity android:name=".Sign_In.Forgetpage" />
         <activity android:name=".History.Order_history" />
         <activity android:name=".Myorder.Myorder" />
         <activity android:name=".Noodle.Restaurant2" />
@@ -30,7 +32,8 @@
         <activity android:name=".Logout1" />
         <activity android:name=".Sign_In.Registerpag" />
         <activity android:name=".Sign_In.Loginpag" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,4 +42,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

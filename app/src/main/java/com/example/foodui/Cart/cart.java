@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.foodui.Check.Check;
 import com.example.foodui.Homepage;
-import com.example.foodui.Logout1;
 import com.example.foodui.R;
 
 public class Cart extends AppCompatActivity {

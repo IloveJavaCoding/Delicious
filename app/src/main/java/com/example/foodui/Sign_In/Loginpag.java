@@ -15,7 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.foodui.Homepage;
+import com.example.foodui.Loading;
 import com.example.foodui.MySingleton;
 import com.example.foodui.R;
 
@@ -89,7 +89,7 @@ public class Loginpag extends AppCompatActivity {
     }
 
     private void loadDashboard(){
-        Intent intent = new Intent(Loginpag.this, Homepage.class);
+        Intent intent = new Intent(Loginpag.this, Loading.class);
         startActivity(intent);
         finish();
     }
