@@ -45,7 +45,7 @@ public class Loading extends AppCompatActivity {
                 public void run() {
                     super.run();
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                         Intent intent = new Intent(Loading.this, Homepage.class);
                         Lock.setLock(0);
 
