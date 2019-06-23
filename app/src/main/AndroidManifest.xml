@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.foodui"
+    package="com.example.delicious"
     android:targetSandboxVersion="1">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".Self_class.Controls"
+        android:name="com.example.delicious.Self_class.Controls"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,25 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Order_List.Order_list"></activity>
-        <activity android:name=".Home.Loading" />
-        <activity android:name=".Sign_In.Forgetpage" />
-        <activity android:name=".History.Order_history" />
-        <activity android:name=".Myorder.Myorder" />
-        <activity android:name=".Restaurant_2.Restaurant2" />
-        <activity android:name=".Home.Search_page" />
-        <activity android:name=".Order_state" />
-        <activity android:name=".Check.Check" />
-        <activity android:name=".Cart.Cart" />
-        <activity android:name=".Restaurant_1.Restaurant1" />
-        <activity android:name=".Homepage" />
-        <activity android:name=".Signout.Logout3" />
-        <activity android:name=".Signout.Logout2" />
-        <activity android:name=".Signout.Logout1" />
-        <activity android:name=".Sign_In.Registerpag" />
-        <activity android:name=".Sign_In.Loginpag" />
+        <activity android:name="com.example.delicious.Order_List.Order_list"></activity>
+        <activity android:name="com.example.delicious.Home.Loading" />
+        <activity android:name="com.example.delicious.Sign_In.Forgetpage" />
+        <activity android:name="com.example.delicious.History.Order_history" />
+        <activity android:name="com.example.delicious.Myorder.Myorder" />
+        <activity android:name="com.example.delicious.Restaurant_2.Restaurant2" />
+        <activity android:name="com.example.delicious.ui.common.SearchPage" />
+        <activity android:name="com.example.delicious.Order_state" />
+        <activity android:name="com.example.delicious.Check.Check" />
+        <activity android:name="com.example.delicious.Cart.Cart" />
+        <activity android:name="com.example.delicious.Restaurant_1.Restaurant1" />
+        <activity android:name="com.example.delicious.Homepage" />
+        <activity android:name="com.example.delicious.Signout.Logout3" />
+        <activity android:name="com.example.delicious.Signout.Logout2" />
+        <activity android:name="com.example.delicious.Signout.Logout1" />
+        <activity android:name="com.example.delicious.Sign_In.Registerpag" />
+        <activity android:name="com.example.delicious.Sign_In.Loginpag" />
         <activity
-            android:name=".Sign_In.MainActivity"
+            android:name="com.example.delicious.Sign_In.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
