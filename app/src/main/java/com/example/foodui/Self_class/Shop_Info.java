@@ -12,7 +12,7 @@ public class Shop_Info implements Serializable {
     public Shop_Info() {
     }
 
-    public Shop_Info(String id, String shop_name, String genre, double rate, String open_time) {
+    public Shop_Info(String id, String shop_name, String genre, float rate, String open_time) {
         this.id = id;
         this.shop_name = shop_name;
         this.genre = genre;

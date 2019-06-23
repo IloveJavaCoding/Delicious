@@ -82,7 +82,7 @@ public class Loading extends AppCompatActivity {
                             String id = c.getString("id");
                             String shop_name = c.getString("shop_name");
                             String genre = c.getString("genre");
-                            double rate = c.getDouble("rate");
+                            double rate =  c.getDouble("rate");
                             String open_time = c.getString("open_time");
 
                             sh[i].setId(id);

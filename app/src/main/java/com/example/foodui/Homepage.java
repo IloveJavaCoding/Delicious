@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Homepage extends AppCompatActivity {
-    private ImageView Isearch, Iuser, Iad;
+    private ImageView Isearch, Iuser;
     private GridView gridView;
     private static Shop_Info[] sh;
     Item_info[] items,item;
@@ -57,10 +57,8 @@ public class Homepage extends AppCompatActivity {
             Lock.setLock(1);
         }
 
-
         Isearch = (ImageView) findViewById(R.id.Isearch);
         Iuser = (ImageView) findViewById(R.id.Iusername);
-        //Iad = (ImageView) findViewById(R.id.Iad);
 
         gridView =(GridView)findViewById(R.id.gar);
         gridView.setAdapter( new Homeadapter(Homepage.this,sh));
@@ -149,50 +147,6 @@ public class Homepage extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(Homepage.this,"Error",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
-    }
-
-    private void Get_all_shop(String path){
-        final JSONObject request = null;
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, path, request,new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                JSONArray acc = null;
-                try {
-                    if (response.getInt("state") ==1) {
-                        acc = response.getJSONArray("shop");
-                        sh = new Shop_Info[acc.length()];
-                        for(int i=0;i<acc.length();i++){
-                            JSONObject c = acc.getJSONObject(i);
-
-                            sh[i] = new Shop_Info();
-                            String id = c.getString("id");
-                            String shop_name = c.getString("shop_name");
-                            String genre = c.getString("genre");
-                            double rate = c.getDouble("rate");
-                            String open_time = c.getString("open_time");
-
-                            sh[i].setId(id);
-                            sh[i].setShop_name(shop_name);
-                            sh[i].setGenre(genre);
-                            sh[i].setRate(rate);
-                            sh[i].setOpen_time(open_time);
-                        }
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });
 

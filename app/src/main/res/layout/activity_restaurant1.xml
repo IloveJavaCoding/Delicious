@@ -7,10 +7,11 @@
     tools:context=".Restaurant_1.Restaurant1">
 
     <LinearLayout
+        android:id="@+id/ly"
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:orientation="vertical"
-        android:background="@drawable/fbg1">
+        android:background="@drawable/sbg_def">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,14 +66,18 @@
             android:orientation="horizontal">
 
             <View
-                android:layout_width="90dp"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"/>
 
-            <ImageView
-                android:id="@+id/Istar"
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/fivestar"/>
+            <RatingBar
+                android:id="@+id/bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/ratingBarStyleSmall"
+                android:progressTint="@color/colorGolden"
+                android:secondaryProgressTint="@color/colorGolden"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp" />
 
             <TextView
                 android:id="@+id/Tvalue"
@@ -125,7 +130,7 @@
     <GridView
         android:id="@+id/GV"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="260dp"
         android:numColumns="3">
     </GridView>
 
