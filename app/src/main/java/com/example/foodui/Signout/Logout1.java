@@ -1,4 +1,4 @@
-package com.example.foodui;
+package com.example.foodui.Signout;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import com.example.foodui.Cart.Cart;
 import com.example.foodui.History.Order_history;
-import com.example.foodui.Myorder.Myorder;
+import com.example.foodui.Homepage;
+import com.example.foodui.Order_List.Order_list;
+import com.example.foodui.R;
 import com.example.foodui.Sign_In.SessionHandler;
 import com.example.foodui.Sign_In.User;
 
@@ -65,7 +67,7 @@ public class Logout1 extends AppCompatActivity {
                     //
                     break;
                 case R.id.Torder:
-                    intent = new Intent(Logout1.this, Myorder.class);
+                    intent = new Intent(Logout1.this, Order_list.class);
                     break;
                 case R.id.Tcart:
                     intent = new Intent(Logout1.this, Cart.class);

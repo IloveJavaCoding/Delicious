@@ -7,55 +7,59 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.foodui.Homepage;
-import com.example.foodui.Logout1;
+import com.example.foodui.Order_List.Order_list;
 import com.example.foodui.R;
 
 public class Myorder extends AppCompatActivity {
     private ListView listView;
     private ImageView Iback;
-    private View It1, It2, It3, It4, It5;//Taste star
-    private View Is1, Is2, Is3, Is4, Is5;//server star
     private Button Breceived;
+    private RatingBar Bt, Bs;
+    private TextView Ordernum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myorder);
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+        int index = bundle.getInt("index");
+
         listView = (ListView)findViewById(R.id.Lv1);
         listView.setAdapter(new Myadapterorder(Myorder.this));
 
+        Ordernum = (TextView)findViewById(R.id.num);
+        Ordernum.setText(Integer.toString(index));
+
+        //----------------------------------------------------------
         Iback = (ImageView) findViewById(R.id.Iback);
-        It1 = (View) findViewById(R.id.vt1);
-        It2 = (View) findViewById(R.id.vt2);
-        It3 = (View) findViewById(R.id.vt3);
-        It4 = (View) findViewById(R.id.vt4);
-        It5 = (View) findViewById(R.id.vt5);
-
-        Is1 = (View) findViewById(R.id.vs1);
-        Is2 = (View) findViewById(R.id.vs2);
-        Is3 = (View) findViewById(R.id.vs3);
-        Is4 = (View) findViewById(R.id.vs4);
-        Is5 = (View) findViewById(R.id.vs5);
         Breceived = (Button) findViewById(R.id.Breceived);
+        Bt = (RatingBar) findViewById(R.id.bar1);
+        Bs = (RatingBar) findViewById(R.id.bar2);
 
+        Bt.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(getApplicationContext(), Float.toString(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Bs.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(getApplicationContext(), Float.toString(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
         SetListener();
     }
     private void SetListener() {
         OnClick onclick = new OnClick();
         Iback.setOnClickListener(onclick);
         Breceived.setOnClickListener(onclick);
-        It1.setOnClickListener(onclick);
-        It2.setOnClickListener(onclick);
-        It3.setOnClickListener(onclick);
-        It4.setOnClickListener(onclick);
-        It5.setOnClickListener(onclick);
-        Is1.setOnClickListener(onclick);
-        Is2.setOnClickListener(onclick);
-        Is3.setOnClickListener(onclick);
-        Is4.setOnClickListener(onclick);
-        Is5.setOnClickListener(onclick);
-
     }
     private class OnClick implements View.OnClickListener {
         @Override
@@ -63,15 +67,13 @@ public class Myorder extends AppCompatActivity {
             Intent intent = null;
             switch (v.getId()) {
                 case R.id.Iback:
-                    intent = new Intent(Myorder.this, Logout1.class);
+                    intent = new Intent(Myorder.this, Order_list.class);
                     break;
                 case R.id.Breceived:
                     //update database;
-
                     intent = new Intent(Myorder.this, Homepage.class);
                     break;
-                case R.id.vt1:
-                    //It1.setBackgroundColor(1);
+
             }
             startActivity(intent);
         }

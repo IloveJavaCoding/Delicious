@@ -8,9 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.foodui.R;
-import com.example.foodui.Shop_Info;
+import com.example.foodui.Self_class.Shop_Info;
 
 public class Homeadapter extends BaseAdapter{
     private Context context;

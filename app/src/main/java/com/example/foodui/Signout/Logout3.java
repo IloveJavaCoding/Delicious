@@ -1,9 +1,12 @@
-package com.example.foodui;
+package com.example.foodui.Signout;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+
+import com.example.foodui.Sign_In.MainActivity;
+import com.example.foodui.R;
 
 public class Logout3 extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.foodui.Noodle;
+package com.example.foodui.Restaurant_2;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodui.Item_info;
-import com.example.foodui.Milktea.Myadapter;
+import com.example.foodui.Self_class.Item_info;
 import com.example.foodui.R;
 
 public class Myadapter2 extends BaseAdapter {

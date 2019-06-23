@@ -1,4 +1,4 @@
-package com.example.foodui;
+package com.example.foodui.Home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,11 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.foodui.Homepage;
+import com.example.foodui.Self_class.MySingleton;
+import com.example.foodui.R;
+import com.example.foodui.Self_class.Controls;
+import com.example.foodui.Self_class.Shop_Info;
 
 import org.json.JSONArray;
 import org.json.JSONException;

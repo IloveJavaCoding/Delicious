@@ -15,8 +15,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.foodui.Loading;
-import com.example.foodui.MySingleton;
+import com.example.foodui.Home.Loading;
+import com.example.foodui.Self_class.MySingleton;
 import com.example.foodui.R;
 
 import org.json.JSONException;

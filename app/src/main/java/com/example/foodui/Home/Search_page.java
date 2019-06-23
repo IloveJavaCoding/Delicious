@@ -1,4 +1,4 @@
-package com.example.foodui;
+package com.example.foodui.Home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.foodui.Homepage;
+import com.example.foodui.R;
 
 public class Search_page extends AppCompatActivity {
     private ImageView Iback;

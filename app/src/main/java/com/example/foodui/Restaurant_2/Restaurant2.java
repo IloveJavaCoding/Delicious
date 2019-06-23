@@ -1,4 +1,4 @@
-package com.example.foodui.Noodle;
+package com.example.foodui.Restaurant_2;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +12,10 @@ import android.widget.TextView;
 
 import com.example.foodui.Cart.Cart;
 import com.example.foodui.Homepage;
-import com.example.foodui.Item_info;
-import com.example.foodui.Logout1;
+import com.example.foodui.Self_class.Item_info;
+import com.example.foodui.Signout.Logout1;
 import com.example.foodui.R;
-import com.example.foodui.Shop_Info;
+import com.example.foodui.Self_class.Shop_Info;
 
 public class Restaurant2 extends AppCompatActivity {
     private ListView listView;

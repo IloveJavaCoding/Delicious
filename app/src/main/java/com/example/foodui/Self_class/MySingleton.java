@@ -1,4 +1,4 @@
-package com.example.foodui;
+package com.example.foodui.Self_class;
 
 import android.content.Context;
 

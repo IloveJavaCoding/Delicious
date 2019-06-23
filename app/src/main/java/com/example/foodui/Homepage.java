@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -16,8 +15,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.foodui.Home.Homeadapter;
-import com.example.foodui.Milktea.Restaurant1;
-import com.example.foodui.Noodle.Restaurant2;
+import com.example.foodui.Home.Search_page;
+import com.example.foodui.Restaurant_1.Restaurant1;
+import com.example.foodui.Restaurant_2.Restaurant2;
+import com.example.foodui.Self_class.Controls;
+import com.example.foodui.Self_class.Item_info;
+import com.example.foodui.Self_class.MySingleton;
+import com.example.foodui.Self_class.Shop_Info;
+import com.example.foodui.Signout.Logout1;
 
 import org.json.JSONArray;
 import org.json.JSONException;
