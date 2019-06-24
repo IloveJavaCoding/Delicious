@@ -35,12 +35,13 @@ public class Homepage extends AppCompatActivity {
     private ImageView Isearch, Iuser, Iad;
     private GridView gridView;
     private static Shop_Info[] sh;
-    Item_info[] items,item;
+    Item_info[] items, item;
     Controls Lock;
 
-    private String url = "http://10.66.93.27:80/delicious/db/get_all_shop.php";
-    private String url2 = "http://10.66.93.27:80/delicious/db/get_item_by_name.php";
-    private String url3 = "http://10.66.93.27:80/delicious/db/get_all_item.php";
+    public final String homeurl = "http://localhost:8080/member/db";
+    private String url = homeurl + "/get_all_shop.php";
+    private String url2 = homeurl + "/get_item_by_name.php";
+    private String url3 = homeurl + "/get_all_item.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +51,10 @@ public class Homepage extends AppCompatActivity {
         //Get_all_shop(url);
         Get_all_item(url3);
 
-        if(Lock.getLock()==0){
+        if (Lock.getLock() == 0) {
             Intent intent = this.getIntent();
             Bundle bundle = intent.getExtras();
-            sh = (Shop_Info[])bundle.getSerializable("shops");
+            sh = (Shop_Info[]) bundle.getSerializable("shops");
             Lock.setLock(1);
         }
 
@@ -62,8 +63,8 @@ public class Homepage extends AppCompatActivity {
         Iuser = (ImageView) findViewById(R.id.Iusername);
         //Iad = (ImageView) findViewById(R.id.Iad);
 
-        gridView =(GridView)findViewById(R.id.gar);
-        gridView.setAdapter( new Homeadapter(Homepage.this,sh));
+        gridView = (GridView) findViewById(R.id.gar);
+        gridView.setAdapter(new Homeadapter(Homepage.this, sh));
 
         SetListener();
     }
@@ -75,18 +76,19 @@ public class Homepage extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             Intent intent = null;
             Bundle bundle = null;
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position%2 ==0){
+                if (position % 2 == 0) {
                     intent = new Intent(Homepage.this, Restaurant1.class);
-                }else{
+                } else {
                     intent = new Intent(Homepage.this, Restaurant2.class);
                 }
-                item = Get_items_oneshop(sh[position].getShop_name(),items);
+                item = Get_items_oneshop(sh[position].getShop_name(), items);
                 bundle = new Bundle();
-                bundle.putSerializable("shop",sh);
-                bundle.putInt("index",position);
-                bundle.putSerializable("item",item);
+                bundle.putSerializable("shop", sh);
+                bundle.putInt("index", position);
+                bundle.putSerializable("item", item);
                 intent.putExtras(bundle);
 
                 startActivity(intent);
@@ -112,17 +114,17 @@ public class Homepage extends AppCompatActivity {
         }
     }
 
-    private void Get_all_item(String path){
+    private void Get_all_item(String path) {
         final JSONObject request = null;
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, path, request,new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, path, request, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 JSONArray acc = null;
                 try {
-                    if (response.getInt("state") ==1) {
+                    if (response.getInt("state") == 1) {
                         acc = response.getJSONArray("item");
                         items = new Item_info[acc.length()];
-                        for(int i=0;i<acc.length();i++){
+                        for (int i = 0; i < acc.length(); i++) {
                             items[i] = new Item_info();
                             JSONObject c = acc.getJSONObject(i);
                             String shop_name = c.getString("shop_name");
@@ -137,8 +139,7 @@ public class Homepage extends AppCompatActivity {
 
                             //items[i] = new Item_info(shop_name,item_name,price,tag);
                         }
-                    }
-                    else {
+                    } else {
                         Toast.makeText(Homepage.this, response.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
@@ -148,24 +149,24 @@ public class Homepage extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Homepage.this,"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Homepage.this, "Error", Toast.LENGTH_SHORT).show();
             }
         });
 
         MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
-    private void Get_all_shop(String path){
+    private void Get_all_shop(String path) {
         final JSONObject request = null;
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, path, request,new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, path, request, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 JSONArray acc = null;
                 try {
-                    if (response.getInt("state") ==1) {
+                    if (response.getInt("state") == 1) {
                         acc = response.getJSONArray("shop");
                         sh = new Shop_Info[acc.length()];
-                        for(int i=0;i<acc.length();i++){
+                        for (int i = 0; i < acc.length(); i++) {
                             JSONObject c = acc.getJSONObject(i);
 
                             sh[i] = new Shop_Info();
@@ -181,8 +182,7 @@ public class Homepage extends AppCompatActivity {
                             sh[i].setRate(rate);
                             sh[i].setOpen_time(open_time);
                         }
-                    }
-                    else {
+                    } else {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
@@ -192,31 +192,31 @@ public class Homepage extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
             }
         });
 
         MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
-    private void Get_item_by_shopname(String name,String path) {
+    private void Get_item_by_shopname(String name, String path) {
         final JSONObject request = new JSONObject();
         try {
             request.put("shopname", name);
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, path, request, new Response.Listener<JSONObject>() {
             final JSONObject request = null;
+
             @Override
             public void onResponse(JSONObject response) {
                 JSONArray acc = null;
                 try {
-                    if (response.getInt("state") ==1) {
+                    if (response.getInt("state") == 1) {
                         acc = response.getJSONArray("shop");
                         items = new Item_info[acc.length()];
-                        for(int i=0;i<acc.length();i++){
+                        for (int i = 0; i < acc.length(); i++) {
                             JSONObject c = acc.getJSONObject(i);
 
                             String shop_name = c.getString("shop_name");
@@ -224,11 +224,10 @@ public class Homepage extends AppCompatActivity {
                             double price = c.getDouble("price");
                             String tag = c.getString("tag");
 
-                            items[i] = new Item_info(shop_name,item_name,price,tag);
+                            items[i] = new Item_info(shop_name, item_name, price, tag);
                         }
                         //Toast.makeText(MainActivity.this, response.getString("Email"), Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    } else {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
@@ -238,18 +237,18 @@ public class Homepage extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
             }
         });
 
         MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
-    private Item_info[] Get_items_oneshop(String name,Item_info[] item ){
+    private Item_info[] Get_items_oneshop(String name, Item_info[] item) {
         List<Item_info> list = new ArrayList<Item_info>();
-        int num=0;
-        for(int i=0; i<item.length; i++){
-            if(item[i].getShop_name().equals(name)){
+        int num = 0;
+        for (int i = 0; i < item.length; i++) {
+            if (item[i].getShop_name().equals(name)) {
                 list.add(item[i]);
                 num++;
             }
@@ -261,7 +260,7 @@ public class Homepage extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode==KeyEvent.KEYCODE_BACK){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             moveTaskToBack(true);
             return true;
         }

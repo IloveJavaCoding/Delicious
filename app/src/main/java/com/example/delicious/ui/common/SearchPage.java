@@ -42,7 +42,7 @@ public class SearchPage extends AppCompatActivity {
                 startActivity(intent);
 
                 keyword = EInput.getText().toString().toLowerCase().trim();
-                KeywordSearch.keywordSearch(keyword);
+                KeywordSearch.keywordSearch("item","item_name",keyword);
             }
         });
     }
