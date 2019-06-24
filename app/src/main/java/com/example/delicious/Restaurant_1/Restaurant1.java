@@ -87,7 +87,7 @@ public class Restaurant1 extends AppCompatActivity implements Myadapter.InnerCli
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
-        //---------------------------------------------------------
+        //----------------------------------------------------------------
 
         Iback.setOnClickListener(new View.OnClickListener() {
             @Override
