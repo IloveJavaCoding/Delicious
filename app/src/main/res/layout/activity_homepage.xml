@@ -53,11 +53,11 @@
             android:src="@drawable/prompt" />
     </LinearLayout>
     -->
-    <com.example.foodui.Home.MyPosterViewPager
+    <com.example.delicious.Home.MyPosterViewPager
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
-    </com.example.foodui.Home.MyPosterViewPager>
+    </com.example.delicious.Home.MyPosterViewPager>
 
     <TextView
         android:id="@+id/tv"
