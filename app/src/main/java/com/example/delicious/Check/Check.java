@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.delicious.Homepage;
-import com.example.delicious.Order_state;
+import com.example.delicious.Generate_Order;
 import com.example.delicious.R;
 
 public class Check extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class Check extends AppCompatActivity {
         Byes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Check.this, Order_state.class);
+                Intent intent = new Intent(Check.this, Generate_Order.class);
                 startActivity(intent);
             }
         });

@@ -8,11 +8,13 @@
     android:padding="10dp"
     tools:context=".Signout.Logout1">
 
-    <View
-        android:id="@+id/Lback"
-        android:layout_width="25dp"
+    <ImageView
+        android:id="@+id/Iback"
+        android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@drawable/back" />
+        android:layout_margin="5dp"
+        android:src="@drawable/back"/>
+
     <View
         android:id="@+id/Luser"
         android:layout_marginTop="20dp"

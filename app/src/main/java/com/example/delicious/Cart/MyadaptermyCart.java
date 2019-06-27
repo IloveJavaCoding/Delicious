@@ -10,18 +10,23 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Item_info;
 
-public class MyadaptermyCart extends BaseAdapter {
+public class MyadaptermyCart extends BaseAdapter implements View.OnClickListener{
     private Context cont;
     private LayoutInflater layf;
+    private Item_info[] items;
+    private InListener mlistener;
 
-    public MyadaptermyCart(Context content){
+    public MyadaptermyCart(Context content, Item_info[] items, InListener listener){
         this.cont=content;
         layf = LayoutInflater.from(content);
+        this.items = items;
+        this.mlistener = listener;
     }
     @Override
     public int getCount() {
-        return 5;
+        return items.length;
     }
 
     @Override
@@ -32,6 +37,15 @@ public class MyadaptermyCart extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return 0;
+    }
+
+    @Override
+    public void onClick(View v) {
+        mlistener.itemClick(v);
+    }
+
+    public interface InListener{
+        void itemClick(View v);
     }
 
     static class ViewHolder{//contain the attrs in the layout_listview;
@@ -56,36 +70,16 @@ public class MyadaptermyCart extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         //set value;
-        holder.Tprice.setText(Integer.toString(position*3+10));//can not be pure int;
+        holder.Tname.setText(items[position].getIteam_name());
+        holder.Tprice.setText(Double.toString(items[position].getPrice()));
+        holder.Tnum.setText(Integer.toString(items[position].getNumber()));
 
-        if(position%3==0){
-            Glide.with(cont).load("https://pokemon.gamerpub.net/img/pkm/tb/130.png").into(holder.Img);
-            holder.Tname.setText("暴鲤龙"+(position/3+1));
-            holder.Tnum.setText(Integer.toString(position%3+1));
-        }else if(position%3==1){
-            Glide.with(cont).load("https://pokemon.gamerpub.net/img/pkm/383.png").into(holder.Img);
-            holder.Tname.setText("哥拉顿"+(position/3+1));
-            holder.Tnum.setText(Integer.toString(position%3+1));
-        }else if(position%3==2){
-            Glide.with(cont).load("https://pokemon.gamerpub.net/img/pkm/tb/384.png").into(holder.Img);
-            holder.Tname.setText("列克萨"+(position/3+1));
-            holder.Tnum.setText(Integer.toString(position%3+1));
-        }
+        holder.Imin.setOnClickListener(this);
+        holder.Imin.setTag(position);
+        holder.Iadd.setOnClickListener(this);
+        holder.Iadd.setTag(position);
 
-        holder.Iadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //holder.Tnum.setText(Integer.parseInt(holder.Tnum.getText())+1);
-            }
-        });
-
-        holder.Imin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //holder.Tnum.setText(Integer.parseInt(holder.Tnum.getText())+1);
-            }
-        });
-
+        Glide.with(cont).load("https://pokemon.gameinfo.io/images/pokemon-go/470-00.png").into(holder.Img);
         return convertView;
     }
 }

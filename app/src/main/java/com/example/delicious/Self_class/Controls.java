@@ -6,15 +6,6 @@ import java.util.List;
 
 public class Controls extends Application {
     private static int lock;
-    private static List<String> order;
-
-    public static List<String> getOrder() {
-        return order;
-    }
-
-    public static void setOrder(List<String> order) {
-        Controls.order = order;
-    }
 
     public Controls() {
     }

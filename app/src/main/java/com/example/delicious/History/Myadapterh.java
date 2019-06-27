@@ -8,18 +8,21 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Order_record;
 
 public class Myadapterh extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
+    private Order_record[] orders;
 
-    public Myadapterh(Context context){
+    public Myadapterh(Context context, Order_record[] orders){
         this.context=context;
         inflater = LayoutInflater.from(context);
+        this.orders = orders;
     }
     @Override
     public int getCount() {
-        return 10;
+        return orders.length;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class Myadapterh extends BaseAdapter {
     }
 
     static class ViewHolder{
-        public TextView Tsname,Tfname,Tprice,Tnum,Tdate;
+        public TextView Tshopname,Tfoodname,Tprice,Tnum,Tdate;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -41,8 +44,8 @@ public class Myadapterh extends BaseAdapter {
         if(convertView==null){
             convertView=inflater.inflate(R.layout.layout_history,null);
             holder = new ViewHolder();
-            holder.Tsname = (TextView)convertView.findViewById(R.id.Tshop);
-            holder.Tfname = (TextView)convertView.findViewById(R.id.Tfname);
+            holder.Tshopname = (TextView)convertView.findViewById(R.id.Tshop);
+            holder.Tfoodname = (TextView)convertView.findViewById(R.id.Tfname);
             holder.Tprice = (TextView)convertView.findViewById(R.id.Tprice);
             holder.Tnum = (TextView)convertView.findViewById(R.id.Tnum);
             holder.Tdate = (TextView)convertView.findViewById(R.id.Tdate);
@@ -52,8 +55,11 @@ public class Myadapterh extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         //set relative value;
-        holder.Tsname.setText("Shop "+(position+1));
-        holder.Tfname.setText("Food "+(position+1));
+        holder.Tshopname.setText(orders[position].getShop_name());
+        holder.Tfoodname.setText(orders[position].getIteam_name());
+        holder.Tprice.setText(Double.toString(orders[position].getPrice()));
+        holder.Tnum.setText(Integer.toString(orders[position].getNumber()));
+        holder.Tdate.setText(orders[position].getReceive_time());
 
         return convertView;
     }

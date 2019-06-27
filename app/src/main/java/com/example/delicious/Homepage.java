@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.delicious.Home.Homeadapter;
+import com.example.delicious.Self_class.Order_record;
 import com.example.delicious.ui.common.SearchPage;
 import com.example.delicious.Restaurant_1.Restaurant1;
 import com.example.delicious.Restaurant_2.Restaurant2;
@@ -38,16 +39,24 @@ public class Homepage extends AppCompatActivity {
     Item_info[] items,item;
     Controls Lock;
 
-    private String url = "http://10.66.93.27:80/delicious/db/get_all_shop.php";
-    private String url2 = "http://10.66.93.27:80/delicious/db/get_item_by_name.php";
-    private String url3 = "http://10.66.93.27:80/delicious/db/get_all_item.php";
+    private final String root1 = "http://10.66.93.27:80/delicious/db/";
+    private final String root2 = "http://10.71.0.203:80/delicious/db/";
+
+    private String url = root1 + "get_all_shop.php";
+    private String url2 = root1 + "get_item_by_name.php";
+    private String url3 = root1 + "get_all_item.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-        //Get_all_shop(url);
+        Get_data();
+        Init();
+        SetListener();
+    }
+
+    private void Get_data(){
         Get_all_item(url3);
 
         if(Lock.getLock()==0){
@@ -56,14 +65,14 @@ public class Homepage extends AppCompatActivity {
             sh = (Shop_Info[])bundle.getSerializable("shops");
             Lock.setLock(1);
         }
+    }
 
+    private void Init(){
         Isearch = (ImageView) findViewById(R.id.Isearch);
         Iuser = (ImageView) findViewById(R.id.Iusername);
 
         gridView =(GridView)findViewById(R.id.gar);
         gridView.setAdapter( new Homeadapter(Homepage.this,sh));
-
-        SetListener();
     }
 
     private void SetListener() {
@@ -75,11 +84,14 @@ public class Homepage extends AppCompatActivity {
             Bundle bundle = null;
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /*
                 if(position%2 ==0){
                     intent = new Intent(Homepage.this, Restaurant1.class);
                 }else{
                     intent = new Intent(Homepage.this, Restaurant2.class);
                 }
+                */
+                intent = new Intent(Homepage.this, Restaurant2.class);
                 item = Get_items_oneshop(sh[position].getShop_name(),items);
                 bundle = new Bundle();
                 bundle.putSerializable("shop",sh);
@@ -97,6 +109,7 @@ public class Homepage extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent = null;
+            Bundle bundle;
             switch (v.getId()) {
                 case R.id.Isearch:
                     intent = new Intent(Homepage.this, SearchPage.class);
@@ -132,6 +145,7 @@ public class Homepage extends AppCompatActivity {
                             items[i].setShop_name(shop_name);
                             items[i].setPrice(price);
                             items[i].setTag(tag);
+                            items[i].setNumber(0);
 
                             //items[i] = new Item_info(shop_name,item_name,price,tag);
                         }
@@ -162,7 +176,6 @@ public class Homepage extends AppCompatActivity {
             e.printStackTrace();
         }
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, path, request, new Response.Listener<JSONObject>() {
-            final JSONObject request = null;
             @Override
             public void onResponse(JSONObject response) {
                 JSONArray acc = null;
@@ -177,8 +190,9 @@ public class Homepage extends AppCompatActivity {
                             String item_name = c.getString("item_name");
                             double price = c.getDouble("price");
                             String tag = c.getString("tag");
+                            int num = 0;
 
-                            items[i] = new Item_info(shop_name,item_name,price,tag);
+                            items[i] = new Item_info(shop_name,item_name,price,tag,num);
                         }
                         //Toast.makeText(MainActivity.this, response.getString("Email"), Toast.LENGTH_SHORT).show();
                     }

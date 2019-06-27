@@ -23,7 +23,7 @@
         <activity android:name="com.example.delicious.Myorder.Myorder" />
         <activity android:name="com.example.delicious.Restaurant_2.Restaurant2" />
         <activity android:name="com.example.delicious.ui.common.SearchPage" />
-        <activity android:name="com.example.delicious.Order_state" />
+        <activity android:name="com.example.delicious.Generate_Order" />
         <activity android:name="com.example.delicious.Check.Check" />
         <activity android:name="com.example.delicious.Cart.Cart" />
         <activity android:name="com.example.delicious.Restaurant_1.Restaurant1" />

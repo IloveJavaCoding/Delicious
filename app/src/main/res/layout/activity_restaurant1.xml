@@ -281,7 +281,7 @@
             android:layout_height="wrap_content"
             android:background="#000000"
             android:layout_margin="5dp"
-            android:text="Details"
+            android:text="Cart"
             android:textStyle="bold"
             android:textColor="#ffffff"/>
     </LinearLayout>

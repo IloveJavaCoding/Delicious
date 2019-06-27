@@ -36,10 +36,13 @@ public class Loginpag extends AppCompatActivity {
     private EditText etPassword;
     private String username;
     private String password;
-    private ProgressDialog pDialog;//"http://10.66.93.241:8080/member/db/login.php";
-    private String login_url = "http://10.66.93.27:80/delicious/db/login.php";
-    //private String login_url = "http://10.71.0.203:80/delicious/db/login.php";//10.71.0.203//10.66.93.27
+    private ProgressDialog pDialog;
     private SessionHandler session;
+
+    private final String root1 = "http://10.66.93.27:80/delicious/db/";
+    private final String root2 = "http://10.71.0.203:80/delicious/db/";
+    //"http://10.66.93.241:8080/member/db/login.php";
+    private String login_url = root1 + "login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

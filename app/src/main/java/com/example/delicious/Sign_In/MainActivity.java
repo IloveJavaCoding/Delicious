@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
                     Thread.sleep(3000);
                     Intent intent = new Intent(MainActivity.this, Loginpag.class);
                     startActivity(intent);
-                    //dia.setVisibility(View.INVISIBLE);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

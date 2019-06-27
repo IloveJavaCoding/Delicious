@@ -12,40 +12,55 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.delicious.Cart.Cart;
 import com.example.delicious.Homepage;
+import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.Signout.Logout1;
 import com.example.delicious.R;
 import com.example.delicious.Self_class.Shop_Info;
 
-public class Restaurant2 extends AppCompatActivity {
+public class Restaurant2 extends AppCompatActivity implements Myadapter2.InListener {
     private ListView listView;
-    private GridView gridView;
-    private ImageView Iback, Isearch, Iuser, Ilogo;
+    private Myadapter2 myadapter2;
+    private ImageView Iback, Iuser, Ilogo;
     private Button Bdetail;
     private TextView Sname,Srate,Stime;
+    private TextView Titems, TRM;
     private RatingBar starbar;
     private LinearLayout linearLayout;
     Shop_Info sh;
     Item_info[] items;
+
     Class<com.example.delicious.R.drawable> cla = R.drawable.class;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant2);
-        //-----------------------------------------------------
+
+        Get_data();
+        Init();
+        Update_pictures();
+        setListener();
+    }
+
+    private void Get_data(){
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
         Shop_Info [] shop = (Shop_Info[])bundle.getSerializable("shop");
-        int index = (int)bundle.getInt("index");
+        int index = bundle.getInt("index");
 
         sh = shop[index];
         items  = (Item_info[])bundle.getSerializable("item") ;
+    }
+
+    private void Init(){
         //-------------------------------------------------------
-        listView = (ListView) findViewById(R.id.LV);
-        listView.setAdapter(new Myadapter2(Restaurant2.this, items));
+        listView = findViewById(R.id.LV);
+        myadapter2 = new Myadapter2(Restaurant2.this, items,this);
+        listView.setAdapter(myadapter2);
 
         Iback = (ImageView)findViewById(R.id.Iback);
         Iuser = (ImageView)findViewById(R.id.Iuser);
@@ -57,8 +72,17 @@ public class Restaurant2 extends AppCompatActivity {
         Sname = (TextView)findViewById(R.id.Tname);
         Srate = (TextView)findViewById(R.id.Tvalue);
         Stime = (TextView)findViewById(R.id.Ttime);
+        Titems = (TextView)findViewById(R.id.Titems);
+        TRM = (TextView)findViewById(R.id.TRM);
         starbar = (RatingBar)findViewById(R.id.bar);
 
+        Sname.setText(sh.getShop_name());
+        Srate.setText(Double.toString(sh.getRate()));
+        Stime.setText(sh.getOpen_time());
+        starbar.setRating((float)sh.getRate());
+    }
+
+    private void Update_pictures(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             String bg = sh.getId().toLowerCase()+ "_bg";
             try {
@@ -71,11 +95,6 @@ public class Restaurant2 extends AppCompatActivity {
             }
         }
 
-        Sname.setText(sh.getShop_name());
-        Srate.setText(Double.toString(sh.getRate()));
-        Stime.setText(sh.getOpen_time());
-        starbar.setRating((float)sh.getRate());
-
         String pic = sh.getId().toLowerCase();
         try {
             int id = cla.getDeclaredField(pic).getInt(null);
@@ -85,13 +104,15 @@ public class Restaurant2 extends AppCompatActivity {
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
-        //----------------------------------------------------------------------
+    }
 
+    private void setListener(){
         Iback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Restaurant2.this, Homepage.class);
                 startActivity(intent);
+                finish();
             }
         });
         Iuser.setOnClickListener(new View.OnClickListener() {
@@ -99,14 +120,56 @@ public class Restaurant2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Restaurant2.this, Logout1.class);
                 startActivity(intent);
+                finish();
             }
         });
         Bdetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Restaurant2.this, Cart.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("food",items);
+                intent.putExtras(bundle);
+
                 startActivity(intent);
+                finish();
             }
         });
+    }
+
+    private void Flash(){
+        int total_items = 0;
+        double total_price = 0;
+        for(int i=0; i<items.length; i++){
+            total_items+=items[i].getNumber();
+            total_price+=(items[i].getPrice() * items[i].getNumber());
+        }
+        Titems.setText(Integer.toString(total_items));
+        TRM.setText(Double.toString(total_price));
+    }
+
+    @Override
+    public void itemClick(View v) {
+        int position = (Integer) v.getTag();
+        switch(v.getId()){
+            case R.id.Imin:
+                int temp =  items[position].getNumber();
+                if(temp>0){
+                    items[position].setNumber(items[position].getNumber()-1);
+                    myadapter2.notifyDataSetChanged();
+                    Flash();
+                }else{
+                    Toast.makeText(getApplicationContext(),"You haven't choose anyone!",Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.Iadd:
+                //Toast.makeText(getApplicationContext(),"add",Toast.LENGTH_SHORT).show();
+                items[position].setNumber(items[position].getNumber()+1);
+                myadapter2.notifyDataSetChanged();
+                Flash();
+                break;
+            default:
+                break;
+        }
     }
 }

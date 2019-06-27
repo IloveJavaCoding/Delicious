@@ -8,6 +8,7 @@
         android:id="@+id/Ilogo"
         android:layout_width="140dp"
         android:layout_height="140dp"
+        android:background="@drawable/shop_def"
         android:scaleType="fitCenter"/>
 
     <TextView

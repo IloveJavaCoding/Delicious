@@ -12,16 +12,20 @@ import com.bumptech.glide.Glide;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Myadapter extends BaseAdapter implements View.OnClickListener {
     private Context context;
     private LayoutInflater inflater;
     private Item_info[] items;
     private InnerClickListener mListener;
 
-    public Myadapter(Context context,Item_info[] item){
+    public Myadapter(Context context,Item_info[] item, InnerClickListener mListener){
         this.context=context;
         inflater = LayoutInflater.from(context);
         this.items = item;
+        this.mListener = mListener;
     }
     @Override
     public int getCount() {
@@ -38,7 +42,7 @@ public class Myadapter extends BaseAdapter implements View.OnClickListener {
         return 0;
     }
 
-    static class ViewHolder{//contain the attrs in the layout_listview;
+    public final static class ViewHolder{//contain the attrs in the layout_listview;
         public ImageView IV, Min,Add;
         public TextView Tname,Tprice,Tnum;
     }
@@ -61,21 +65,18 @@ public class Myadapter extends BaseAdapter implements View.OnClickListener {
         }
         holder.Tname.setText(items[position].getIteam_name());
         holder.Tprice.setText(Double.toString(items[position].getPrice()));
-        holder.Tnum.setText("0");
+        holder.Tnum.setText(Integer.toString(items[position].getNumber()));//list.get(position)
 
         holder.Min.setOnClickListener(this);
+        holder.Min.setTag(position);
         holder.Add.setOnClickListener(this);
+        holder.Add.setTag(position);
 
         Glide.with(context).load("https://pokemon.gameinfo.io/images/pokemon-go/470-00.png").into(holder.IV);
         return convertView;
     }
-
-     interface InnerClickListener {
-        void itemClick(View v);
-     }
-
-     public void setInneClickListener(InnerClickListener listener){
-        this.mListener = listener;
+     public interface InnerClickListener {
+         void itemClick(View v);
      }
 
     @Override

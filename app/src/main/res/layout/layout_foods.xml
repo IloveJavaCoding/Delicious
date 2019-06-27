@@ -13,6 +13,7 @@
             android:id="@+id/Ifood"
             android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:background="@drawable/food_def"
             android:scaleType="centerCrop"/>
         <TextView
             android:id="@+id/Tname"

@@ -28,7 +28,10 @@ public class Loading extends AppCompatActivity {
     Shop_Info[] sh;
     Controls Lock;
 
-    private String url = "http://10.66.93.27:80/delicious/db/get_all_shop.php";
+    private final String root1 = "http://10.66.93.27:80/delicious/db/";
+    private final String root2 = "http://10.71.0.203:80/delicious/db/";
+
+    private String url = root1 + "get_all_shop.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Order_state">
+    tools:context=".Generate_Order">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,11 +54,11 @@
             android:padding="5dp"/>
 
         <TextView
-            android:id="@+id/Torder"
+            android:id="@+id/Tordernum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="XDS142857"
+            android:text="..."
             android:textStyle="bold"
             android:textColor="@color/colorTheme"
             android:textSize="25dp"
@@ -107,7 +107,6 @@
             android:text="Back to Home"
             android:textColor="@color/colorWhite"
             android:background="@color/colorTheme"/>
-
     </LinearLayout>
 
 </LinearLayout>
