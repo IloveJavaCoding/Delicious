@@ -167,52 +167,6 @@ public class Homepage extends AppCompatActivity {
         MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
-    private void Get_item_by_shopname(String name,String path) {
-        final JSONObject request = new JSONObject();
-        try {
-            request.put("shopname", name);
-        }
-        catch(JSONException e){
-            e.printStackTrace();
-        }
-        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.POST, path, request, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                JSONArray acc = null;
-                try {
-                    if (response.getInt("state") ==1) {
-                        acc = response.getJSONArray("shop");
-                        items = new Item_info[acc.length()];
-                        for(int i=0;i<acc.length();i++){
-                            JSONObject c = acc.getJSONObject(i);
-
-                            String shop_name = c.getString("shop_name");
-                            String item_name = c.getString("item_name");
-                            double price = c.getDouble("price");
-                            String tag = c.getString("tag");
-                            int num = 0;
-
-                            items[i] = new Item_info(shop_name,item_name,price,tag,num);
-                        }
-                        //Toast.makeText(MainActivity.this, response.getString("Email"), Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
-    }
-
     private Item_info[] Get_items_oneshop(String name,Item_info[] item ){
         List<Item_info> list = new ArrayList<Item_info>();
         int num=0;

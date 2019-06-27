@@ -16,6 +16,7 @@ public class Myadapterorder extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
     private Item_info[] items;
+    Class<com.example.delicious.R.drawable> cla = R.drawable.class;
 
     public Myadapterorder(Context context, Item_info[] items){
         this.context=context;
@@ -64,8 +65,17 @@ public class Myadapterorder extends BaseAdapter {
         holder.Tprice.setText(Double.toString(items[position].getPrice()));
         holder.Tnum.setText(Integer.toString(items[position].getNumber()));
 
-        Glide.with(context).load("https://pokemon.gameinfo.io/images/pokemon-go/470-00.png").into(holder.Img);
+        String pic = items[position].getTag().toLowerCase();
+        try {
+            int id = cla.getDeclaredField(pic).getInt(null);
+            holder.Img.setBackgroundResource(id);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
 
+        //Glide.with(context).load("https://pokemon.gameinfo.io/images/pokemon-go/470-00.png").into(holder.Img);
         return convertView;
     }
 }

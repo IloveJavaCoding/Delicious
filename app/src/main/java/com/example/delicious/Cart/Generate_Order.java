@@ -1,4 +1,4 @@
-package com.example.delicious;
+package com.example.delicious.Cart;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +13,14 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.delicious.Self_class.Controls;
+import com.example.delicious.Homepage;
+import com.example.delicious.R;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.Self_class.Order_record;
 import com.example.delicious.Sign_In.SessionHandler;
 import com.example.delicious.Sign_In.User;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -51,7 +51,7 @@ public class Generate_Order extends AppCompatActivity {
         Get_data();
         Init();
         SetListener();
-        //Create();
+        Create();
     }
 
     private void Get_data(){
@@ -125,7 +125,7 @@ public class Generate_Order extends AppCompatActivity {
         Bhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Create_orders(user.getUsername(),order_num,items,path);
+                //Create_orders(user.getUsername(),order_num,items,path);
                 Intent intent = new Intent(Generate_Order.this, Homepage.class);
                 startActivity(intent);
                 finish();
@@ -176,7 +176,7 @@ public class Generate_Order extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"No Internet",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -210,7 +210,7 @@ public class Generate_Order extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"No Internet",Toast.LENGTH_SHORT).show();
             }
         });
 

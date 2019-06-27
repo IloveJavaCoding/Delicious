@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.delicious.Homepage;
-import com.example.delicious.Generate_Order;
+import com.example.delicious.Cart.Generate_Order;
 import com.example.delicious.R;
 
 public class Check extends AppCompatActivity {

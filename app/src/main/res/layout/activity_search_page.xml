@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.common.SearchPage">
 
     <LinearLayout
@@ -23,8 +24,8 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:background="@drawable/frame2"
-            android:hint="search food, restarant"
-            android:padding="5dp" />
+            android:hint="search food"
+            android:paddingLeft="15dp" />
 
         <TextView
             android:id="@+id/Tsearch"
@@ -37,5 +38,13 @@
             android:textSize="20dp"/>
 
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:dividerHeight="10dp"
+        android:divider="@color/colorBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
 
 </LinearLayout>

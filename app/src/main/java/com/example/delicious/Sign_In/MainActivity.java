@@ -9,20 +9,24 @@ import android.widget.ProgressBar;
 import com.example.delicious.R;
 
 public class MainActivity extends AppCompatActivity {
-    private ProgressBar dia;
+    //private ProgressBar dia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dia = (ProgressBar)findViewById(R.id.bar);
+        Init();
+    }
+
+    private void Init(){
+        //dia = findViewById(R.id.bar);
 
         new Thread(){
             @Override
             public void run() {
                 super.run();
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(1500);
                     Intent intent = new Intent(MainActivity.this, Loginpag.class);
                     startActivity(intent);
                 } catch (InterruptedException e) {

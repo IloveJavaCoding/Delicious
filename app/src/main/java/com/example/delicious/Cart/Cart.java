@@ -14,7 +14,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.delicious.Generate_Order;
 import com.example.delicious.Homepage;
 import com.example.delicious.R;
 import com.example.delicious.Self_class.Item_info;
