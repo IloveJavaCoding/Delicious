@@ -33,6 +33,7 @@ public class Restaurant2 extends AppCompatActivity implements Myadapter2.InListe
     private LinearLayout linearLayout;
     Shop_Info sh;
     Item_info[] items;
+    Controls Lock;
 
     Class<com.example.delicious.R.drawable> cla = R.drawable.class;
     @Override
@@ -44,6 +45,7 @@ public class Restaurant2 extends AppCompatActivity implements Myadapter2.InListe
         Init();
         Update_pictures();
         setListener();
+        Toast.makeText(getApplicationContext(), Integer.toString(Lock.getLock2()), Toast.LENGTH_SHORT).show();
     }
 
     private void Get_data(){
@@ -126,6 +128,7 @@ public class Restaurant2 extends AppCompatActivity implements Myadapter2.InListe
         Bdetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Lock.setLock2(0);
                 Intent intent = new Intent(Restaurant2.this, Cart.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("food",items);

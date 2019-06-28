@@ -3,6 +3,7 @@ package com.example.delicious.Cart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.JsonWriter;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ import com.example.delicious.Self_class.Order_record;
 import com.example.delicious.Sign_In.SessionHandler;
 import com.example.delicious.Sign_In.User;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -42,6 +44,7 @@ public class Generate_Order extends AppCompatActivity {
     private final String root2 = "http://10.71.0.203:80/delicious/db/";
 
     private String path = root1 + "create_order.php";
+    private String path2 = root1 + "create_orders.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,13 +80,14 @@ public class Generate_Order extends AppCompatActivity {
     }
 
     private void Create(){
+        //Create_orders(user.getUsername(),order_num, items, path2);
         new Thread(){
             @Override
             public void run() {
                 super.run();
                 for(int i=0; i<items.length; i++){
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -125,10 +129,9 @@ public class Generate_Order extends AppCompatActivity {
         Bhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create_orders(user.getUsername(),order_num,items,path);
-                Intent intent = new Intent(Generate_Order.this, Homepage.class);
-                startActivity(intent);
-                finish();
+            Intent intent = new Intent(Generate_Order.this, Homepage.class);
+            startActivity(intent);
+            finish();
             }
         });
     }
@@ -180,15 +183,29 @@ public class Generate_Order extends AppCompatActivity {
             }
         });
 
-        MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
+        MySingleton.getInstance(Generate_Order.this).addToRequestQueue(jsArrayRequest);
     }
 
     private void Create_orders(String username,String ordernum,Item_info[] items, String path){
+        int len = items.length;
         final JSONObject request = new JSONObject();
         try {
             request.put("username", username);
             request.put("ordernumber", ordernum);
-            request.put("items", items);
+            request.put("len", len);
+            for(int i=0; i<len; i++){
+                String name1 = Integer.toString(i*5 +1);
+                String name2 = Integer.toString(i*5 +2);
+                String name3 = Integer.toString(i*5 +3);
+                String name4 = Integer.toString(i*5 +4);
+                String name5 = Integer.toString(i*5 +5);
+
+                request.put(name1,items[i].getShop_name());
+                request.put(name2,items[i].getIteam_name());
+                request.put(name3,items[i].getPrice());
+                request.put(name4,items[i].getNumber());
+                request.put(name5,items[i].getTag());
+            }
         }
         catch(JSONException e){
             e.printStackTrace();

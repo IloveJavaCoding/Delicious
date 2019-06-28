@@ -22,7 +22,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Loading extends AppCompatActivity {
-    private ProgressBar dialog;
     private TextView show;
     private int statue = 1;
     Shop_Info[] sh;
@@ -37,11 +36,17 @@ public class Loading extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
+        Init();
+        Jump();
+    }
+
+    private void Init(){
         Get_all_shop(url);
-        dialog =(ProgressBar)findViewById(R.id.bar);
         show = (TextView)findViewById(R.id.tv);
         Lock = new Controls();
+    }
 
+    private void Jump(){
         if(statue==1){
             new Thread(){
                 @Override
@@ -51,6 +56,7 @@ public class Loading extends AppCompatActivity {
                         Thread.sleep(500);
                         Intent intent = new Intent(Loading.this, Homepage.class);
                         Lock.setLock(0);
+                        Lock.setLock2(0);
 
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("shops",sh);

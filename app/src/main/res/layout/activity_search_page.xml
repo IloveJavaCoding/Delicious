@@ -24,7 +24,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:background="@drawable/frame2"
-            android:hint="search food"
+            android:hint="search food, shop name"
             android:paddingLeft="15dp" />
 
         <TextView

@@ -117,7 +117,7 @@ public class SearchPage extends AppCompatActivity {
         List<Item_info> list = new ArrayList<Item_info>();
         int num=0;
         for(int i=0; i<item.length; i++){
-            if(item[i].getIteam_name().toLowerCase().contains(keyword)){
+            if(item[i].getIteam_name().toLowerCase().contains(keyword) || item[i].getShop_name().toLowerCase().contains(keyword)){
                 list.add(item[i]);
                 num++;
             }

@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.delicious.Homepage;
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.Self_class.Order_record;
@@ -34,8 +35,9 @@ public class Cart extends AppCompatActivity implements MyadaptermyCart.InListene
     private Button BAll;
     private TextView Tadd_more, Tnum, Tprice, Torprice, Tshow;
 
-    private Item_info[] items;
+    private static Item_info[] items;
     private Order_record[] orders;
+    Controls Lock;
 
     private final String root1 = "http://10.66.93.27:80/delicious/db/";
     private final String root2 = "http://10.71.0.203:80/delicious/db/";
@@ -51,10 +53,14 @@ public class Cart extends AppCompatActivity implements MyadaptermyCart.InListene
         SetListener();
     }
     private void Get_data(){
-        Intent intent = this.getIntent();
-        Bundle bundle = intent.getExtras();
-        Item_info[] item  = (Item_info[])bundle.getSerializable("food") ;
-        items = Get_choosed_items(item);
+        if(Lock.getLock2()==0){
+            Intent intent = this.getIntent();
+            Bundle bundle = intent.getExtras();
+            Item_info[] item  = (Item_info[])bundle.getSerializable("food") ;
+            items = Get_choosed_items(item);
+            Lock.setLock2(1);
+        }
+
         Get_all_order(path);
     }
 
@@ -102,8 +108,8 @@ public class Cart extends AppCompatActivity implements MyadaptermyCart.InListene
         BAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(items.length>0){
+                    Lock.setLock2(0);
                     Intent intent = new Intent(Cart.this, Generate_Order.class);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("foods",items);
@@ -112,6 +118,8 @@ public class Cart extends AppCompatActivity implements MyadaptermyCart.InListene
 
                     startActivity(intent);
                     finish();
+                }else{
+                    Toast.makeText(getApplicationContext(),"You have chosen nothing!!!",Toast.LENGTH_SHORT).show();
                 }
             }
         });

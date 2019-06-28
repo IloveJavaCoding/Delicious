@@ -41,11 +41,14 @@ public class Logout1 extends AppCompatActivity {
     private User user;
     private String[] order_number_unchecked;
     private Order_record[] orders, order_by_user, order_unchecked, order_checked;
+    private Item_info[] items;
+    Controls Lock;
 
     private final String root1 = "http://10.66.93.27:80/delicious/db/";
     private final String root2 = "http://10.71.0.203:80/delicious/db/";
 
-    private  String path = root1 + "get_all_order.php";
+    private String path = root1 + "get_all_order.php";
+    private String path2 = root1 + "get_all_item.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +58,13 @@ public class Logout1 extends AppCompatActivity {
         session = new SessionHandler(Logout1.this);
         user = session.getUserDetails();
 
-        Get_all_order(path);
         Init();
         SetListener();
     }
     private void Init(){
+        Get_all_order(path);
+        Get_all_item(path2);
+
         Iback = findViewById(R.id.Iback);
         Iexit = (ImageView)findViewById(R.id.Iexit);
         TUsername = (TextView)findViewById(R.id.Tuser);
@@ -88,15 +93,6 @@ public class Logout1 extends AppCompatActivity {
         Tcart.setOnClickListener(onclick);
         Thistory.setOnClickListener(onclick);
         TLogout.setOnClickListener(onclick);
-
-        Tcart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Logout1.this, Cart.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     private class OnClick implements View.OnClickListener {
@@ -111,6 +107,14 @@ public class Logout1 extends AppCompatActivity {
                 case R.id.Iexit:
                 case R.id.logout:
                     intent = new Intent(Logout1.this, Logout2.class);
+                    break;
+                case R.id.Tcart:
+                    intent = new Intent(Logout1.this, Cart.class);
+                    if(Lock.getLock2()==0){
+                        bundle = new Bundle();
+                        bundle.putSerializable("food",items);
+                        intent.putExtras(bundle);
+                    }
                     break;
                 case R.id.Torder:
                     Flash();
@@ -185,6 +189,50 @@ public class Logout1 extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(),"Not internet",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
+    }
+
+    private void Get_all_item(String path){
+        final JSONObject request = null;
+        JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, path, request,new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                JSONArray acc = null;
+                try {
+                    if (response.getInt("state") ==1) {
+                        acc = response.getJSONArray("item");
+                        items = new Item_info[acc.length()];
+                        for(int i=0;i<acc.length();i++){
+                            items[i] = new Item_info();
+                            JSONObject c = acc.getJSONObject(i);
+                            String shop_name = c.getString("shop_name");
+                            String item_name = c.getString("item_name");
+                            double price = c.getDouble("price");
+                            String tag = c.getString("tag");
+
+                            items[i].setIteam_name(item_name);
+                            items[i].setShop_name(shop_name);
+                            items[i].setPrice(price);
+                            items[i].setTag(tag);
+                            items[i].setNumber(0);
+
+                            //items[i] = new Item_info(shop_name,item_name,price,tag);
+                        }
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
             }
         });
 
