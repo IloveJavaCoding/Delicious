@@ -1,4 +1,4 @@
-package com.example.delicious.Sign_In;
+package com.example.delicious.ui.common.sign_in;
 
 import android.content.Context;
 import android.content.SharedPreferences;

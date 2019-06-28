@@ -1,4 +1,4 @@
-package com.example.delicious.Order_List;
+package com.example.delicious.ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,18 +9,20 @@ import android.widget.TextView;
 
 import com.example.delicious.R;
 
-public class Myadapterorder extends BaseAdapter {
+public class OrderAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
+    private String [] order_number;
 
-    public Myadapterorder(Context context) {
+    public OrderAdapter(Context context, String [] order_number) {
         this.context = context;
         inflater = LayoutInflater.from(context);
+        this.order_number = order_number;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return order_number.length;
     }
 
     @Override
@@ -49,7 +51,7 @@ public class Myadapterorder extends BaseAdapter {
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.Torder.setText("TNT123");
+        holder.Torder.setText(order_number[position]);
 
         return convertView;
     }

@@ -7,8 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+<<<<<<< Updated upstream
 import com.example.delicious.Homepage;
 import com.example.delicious.Order_state;
+=======
+import com.example.delicious.ui.common.Homepage;
+import com.example.delicious.Cart.Generate_Order;
+>>>>>>> Stashed changes
 import com.example.delicious.R;
 
 public class Check extends AppCompatActivity {

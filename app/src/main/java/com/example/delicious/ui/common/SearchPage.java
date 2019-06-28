@@ -13,10 +13,17 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.delicious.Homepage;
 import com.example.delicious.R;
+<<<<<<< Updated upstream
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.database.Connection;
+=======
+import com.example.delicious.Self_class.Item_info;
+import com.example.delicious.Self_class.MySingleton;
+import com.example.delicious.Self_class.Shop_Info;
+import com.example.delicious.function.common.KeywordSearch;
+import com.example.delicious.ui.adapter.SearchAdapter;
+>>>>>>> Stashed changes
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,7 +60,42 @@ public class SearchPage extends AppCompatActivity {
         Tsearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< Updated upstream
                 Intent intent = new Intent(SearchPage.this, Homepage.class);
+=======
+                keyword = EInput.getText().toString().toLowerCase().trim();
+
+                if(!keyword.equals("")){
+                    item = Get_items_keyword(keyword,items);
+                    if(item.length<1){
+                        Toast.makeText(getApplicationContext(),"No march!!!!", Toast.LENGTH_SHORT).show();
+                    }
+                    listView.setAdapter(new SearchAdapter(SearchPage.this,item));
+                }
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String shop_name = item[position].getShop_name();
+                int index = 0;
+                for(int i=0; i<shops.length; i++){
+                    if(shops[i].getShop_name().equals(shop_name)){
+                        index = i;
+                        break;
+                    }
+                }
+                item_one = Get_items_oneshop(shop_name,items);
+
+                Intent intent = new Intent(getApplicationContext(), Restaurant2.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("shop",shops);
+                bundle.putInt("index",index);
+                bundle.putSerializable("item",item_one);
+                intent.putExtras(bundle);
+
+>>>>>>> Stashed changes
                 startActivity(intent);
 
                 keyword = EInput.getText().toString().toLowerCase().trim();

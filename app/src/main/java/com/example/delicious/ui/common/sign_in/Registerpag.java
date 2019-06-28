@@ -1,4 +1,4 @@
-package com.example.delicious.Sign_In;
+package com.example.delicious.ui.common.sign_in;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -38,9 +38,11 @@ public class Registerpag extends AppCompatActivity {
     private String confirmPassword;
     private String fullName;
     private ProgressDialog pDialog;
-    private String register_url = "http://10.66.93.27:80/delicious/db/register.php";
-   // private String register_url = "http://10.71.0.203:80/delicious/db/register.php";
     private SessionHandler session;
+
+    private final String root1 = "http://10.66.93.27:80/delicious/db/";
+    private final String root2 = "http://10.71.0.203:80/delicious/db/";
+    private String register_url = root1 + "register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

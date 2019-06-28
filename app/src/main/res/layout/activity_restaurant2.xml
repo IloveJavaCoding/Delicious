@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Restaurant_2.Restaurant2">
+    tools:context=".ui.common.Restaurant2">
 
     <LinearLayout
         android:layout_width="match_parent"

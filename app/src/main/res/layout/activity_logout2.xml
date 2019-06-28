@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="15dp"
     android:background="@drawable/bc"
-    tools:context=".Signout.Logout2">
+    tools:context=".ui.common.sign_out.Logout2">
 
     <TextView
         android:id="@+id/textView"

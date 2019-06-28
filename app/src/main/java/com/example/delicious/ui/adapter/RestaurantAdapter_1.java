@@ -1,4 +1,4 @@
-package com.example.delicious.Restaurant_2;
+package com.example.delicious.ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,16 +12,20 @@ import com.bumptech.glide.Glide;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.R;
 
-public class Myadapter2 extends BaseAdapter {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RestaurantAdapter_1 extends BaseAdapter implements View.OnClickListener {
     private Context context;
     private LayoutInflater inflater;
     private Item_info[] items;
-    private ViewHolder holder = null;
+    private InnerClickListener mListener;
 
-    public Myadapter2(Context context, Item_info[] item){
+    public RestaurantAdapter_1(Context context, Item_info[] item, InnerClickListener mListener){
         this.context=context;
         inflater = LayoutInflater.from(context);
         this.items = item;
+        this.mListener = mListener;
     }
     @Override
     public int getCount() {
@@ -37,14 +41,16 @@ public class Myadapter2 extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-    static class ViewHolder{//contain the attrs in the layout_listview;
+
+    public final static class ViewHolder{//contain the attrs in the layout_listview;
         public ImageView IV, Min,Add;
         public TextView Tname,Tprice,Tnum;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = null;
         if(convertView==null){
-            convertView=inflater.inflate(R.layout.layout_foods2,null);
+            convertView=inflater.inflate(R.layout.layout_foods,null);
             holder = new ViewHolder();
             holder.IV = (ImageView)convertView.findViewById(R.id.Ifood);
             holder.Min = (ImageView)convertView.findViewById(R.id.Imin);
@@ -57,32 +63,24 @@ public class Myadapter2 extends BaseAdapter {
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-
         holder.Tname.setText(items[position].getIteam_name());
         holder.Tprice.setText(Double.toString(items[position].getPrice()));
-        holder.Tnum.setText("0");
+        holder.Tnum.setText(Integer.toString(items[position].getNumber()));//list.get(position)
 
-        holder.Min.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int num = Integer.parseInt(holder.Tnum.getText().toString());
-                if(num>0){
-                    num--;
-                    holder.Tnum.setText(num);
-                }
-            }
-        });
-
-        holder.Add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int num = Integer.parseInt(holder.Tnum.getText().toString());
-                num++;
-                holder.Tnum.setText(num);
-            }
-        });
+        holder.Min.setOnClickListener(this);
+        holder.Min.setTag(position);
+        holder.Add.setOnClickListener(this);
+        holder.Add.setTag(position);
 
         Glide.with(context).load("https://pokemon.gameinfo.io/images/pokemon-go/470-00.png").into(holder.IV);
         return convertView;
+    }
+     public interface InnerClickListener {
+         void itemClick(View v);
+     }
+
+    @Override
+    public void onClick(View v) {
+        mListener.itemClick(v);
     }
 }

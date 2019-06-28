@@ -7,7 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+<<<<<<< Updated upstream
 import com.example.delicious.Signout.Logout1;
+=======
+import com.example.delicious.Self_class.Order_record;
+import com.example.delicious.ui.common.sign_out.Logout1;
+>>>>>>> Stashed changes
 import com.example.delicious.R;
 
 public class Order_history extends AppCompatActivity {

@@ -1,11 +1,11 @@
-package com.example.delicious.Signout;
+package com.example.delicious.ui.common.sign_out;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
-import com.example.delicious.Sign_In.MainActivity;
+import com.example.delicious.ui.common.sign_in.MainActivity;
 import com.example.delicious.R;
 
 public class Logout3 extends AppCompatActivity {

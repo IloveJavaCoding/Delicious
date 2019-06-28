@@ -16,25 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.delicious.Order_List.Order_list"></activity>
+        <activity android:name="com.example.delicious.ui.common.order.OrderList"></activity>
         <activity android:name="com.example.delicious.Home.Loading" />
-        <activity android:name="com.example.delicious.Sign_In.Forgetpage" />
+        <activity android:name=".ui.common.sign_in.Forgetpage" />
         <activity android:name="com.example.delicious.History.Order_history" />
-        <activity android:name="com.example.delicious.Myorder.Myorder" />
-        <activity android:name="com.example.delicious.Restaurant_2.Restaurant2" />
+        <activity android:name="com.example.delicious.ui.common.order.MyOrder" />
+        <activity android:name="com.example.delicious.ui.common.Restaurant2" />
         <activity android:name="com.example.delicious.ui.common.SearchPage" />
         <activity android:name="com.example.delicious.Order_state" />
         <activity android:name="com.example.delicious.Check.Check" />
         <activity android:name="com.example.delicious.Cart.Cart" />
-        <activity android:name="com.example.delicious.Restaurant_1.Restaurant1" />
-        <activity android:name="com.example.delicious.Homepage" />
-        <activity android:name="com.example.delicious.Signout.Logout3" />
-        <activity android:name="com.example.delicious.Signout.Logout2" />
-        <activity android:name="com.example.delicious.Signout.Logout1" />
-        <activity android:name="com.example.delicious.Sign_In.Registerpag" />
-        <activity android:name="com.example.delicious.Sign_In.Loginpag" />
+        <activity android:name="com.example.delicious.ui.common.Restaurant1" />
+        <activity android:name="com.example.delicious.ui.common.Homepage" />
+        <activity android:name=".ui.common.sign_out.Logout3" />
+        <activity android:name=".ui.common.sign_out.Logout2" />
+        <activity android:name=".ui.common.sign_out.Logout1" />
+        <activity android:name=".ui.common.sign_in.Registerpag" />
+        <activity android:name=".ui.common.sign_in.Loginpag" />
         <activity
-            android:name="com.example.delicious.Sign_In.MainActivity"
+            android:name=".ui.common.sign_in.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

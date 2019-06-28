@@ -1,4 +1,4 @@
-package com.example.delicious.Signout;
+package com.example.delicious.ui.common.sign_out;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.delicious.R;
-import com.example.delicious.Sign_In.SessionHandler;
-import com.example.delicious.Sign_In.User;
+import com.example.delicious.ui.common.sign_in.SessionHandler;
+import com.example.delicious.ui.common.sign_in.User;
 
 public class Logout2 extends AppCompatActivity {
     private Button Byes, Bno;

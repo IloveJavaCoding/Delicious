@@ -3,7 +3,6 @@ package com.example.delicious.Home;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,7 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.delicious.Homepage;
+import com.example.delicious.ui.common.Homepage;
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.R;
 import com.example.delicious.Self_class.Controls;

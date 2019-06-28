@@ -6,7 +6,7 @@
     android:background="@drawable/bc"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".Signout.Logout1">
+    tools:context=".ui.common.sign_out.Logout1">
 
     <View
         android:id="@+id/Lback"

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@drawable/i001"
-    tools:context=".Sign_In.Forgetpage">
+    tools:context=".ui.common.sign_in.Forgetpage">
 
     <TextView
         android:layout_width="match_parent"
