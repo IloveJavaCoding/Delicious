@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Cart.Cart">
+    tools:context=".Activities.MyCart_page">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
-            android:src="@drawable/back"/>
+            android:src="@drawable/back_white"/>
 
         <TextView
             android:id="@+id/tv"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:dividerHeight="1dp"
-        android:divider="@color/colorTheme">
+        android:divider="@color/colorGery">
     </ListView>
 
     <View
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="5dp"
-            android:drawableLeft="@drawable/think"
+            android:drawableLeft="@drawable/cart_think"
             android:text="  Add more..."
             android:textColor="@color/colorText"
             android:textSize="25dp" />
@@ -166,7 +166,7 @@
                     android:layout_gravity="right"
                     android:text="0.00"
                     android:background="@drawable/underline2"
-                    android:textColor="#80EC6A6A"
+                    android:textColor="@color/colorGery"
                     android:textSize="20dp"
                     android:visibility="invisible"/>
 

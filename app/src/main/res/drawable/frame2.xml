@@ -12,6 +12,5 @@
         android:startColor="@color/colorGery"
         android:centerColor="@color/colorGery"
         android:endColor="@color/colorGery"/>
-
 </shape>
 

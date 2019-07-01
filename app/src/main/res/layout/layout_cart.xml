@@ -57,7 +57,7 @@
                 android:id="@+id/Imin"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/min"
+                android:src="@drawable/food_min"
                 android:scaleType="centerCrop"/>
             <TextView
                 android:id="@+id/Tnum"
@@ -73,7 +73,7 @@
                 android:layout_width="30dp"
                 android:layout_marginRight="10dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/add"
+                android:src="@drawable/food_add"
                 android:scaleType="centerCrop"/>
         </LinearLayout>
     </LinearLayout>

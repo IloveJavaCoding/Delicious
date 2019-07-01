@@ -5,26 +5,66 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@drawable/i001"
-    tools:context=".Sign_In.Forgetpage">
+    android:background="@drawable/theme_bg"
+    tools:context=".Activities.Forget_password_page">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+       android:padding="10dp"
+        android:text="Forget Password"
+        android:textAlignment="center"
+        android:textColor="@color/colorTitle"
+        android:textSize="27dp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame"
         android:padding="10dp"
-        android:text="Just to Register another one!!!"
-        android:textColor="#EB0E0E"
-        android:textSize="25dp"
-        android:textAlignment="center"/>
+        android:layout_margin="15dp"
+        android:hint="Username" />
+
+    <EditText
+        android:id="@+id/answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:hint="Your favorite food"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:hint="New password"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame"
+        android:padding="10dp"
+        android:layout_margin="15dp"
+        android:hint="Password confirm"
+        android:inputType="textPassword"/>
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp"
-        android:padding="10dp">
+        android:layout_marginTop="20dp"
+        android:padding="20dp">
 
         <Button
             android:id="@+id/BTologin"
@@ -41,12 +81,22 @@
         </View>
 
         <Button
-            android:id="@+id/Bregister"
+            android:id="@+id/Bchange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#2B76E7"
-            android:text="Register"
+            android:text="Change"
             android:textColor="#ffffff" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text=""
+        android:textColor="#EB0E0E"
+        android:textSize="25dp"
+        android:textAlignment="center"/>
 
 </LinearLayout>

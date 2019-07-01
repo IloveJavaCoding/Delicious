@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Homepage">
+    tools:context=".Activities.Homepage">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,21 +36,33 @@
             android:id="@+id/Iusername"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/username"
+            android:src="@drawable/user_username"
             android:gravity="right"/>
     </LinearLayout>
 
-
-    <com.example.delicious.Home.MyPosterViewPager
+    <com.example.delicious.Adapters.MyPosterViewPager
         android:layout_width="match_parent"
-        android:layout_height="200dp">
-    </com.example.delicious.Home.MyPosterViewPager>
+        android:layout_height="190dp">
+    </com.example.delicious.Adapters.MyPosterViewPager>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/underline3"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/colorWhite"/>
 
     <GridView
         android:id="@+id/gar"
-        android:padding="20dp"
-        android:verticalSpacing="25dp"
-        android:horizontalSpacing="40dp"
+        android:background="@color/colorGery"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:paddingTop="12dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="2">

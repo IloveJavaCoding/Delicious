@@ -4,18 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bc"
+    android:background="@drawable/theme_bg"
     android:padding="15dp"
-    tools:context=".Sign_In.Registerpag">
+    tools:context=".Activities.Register_page">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Daily"
+        android:text="@string/app_name"
         android:fontFamily="cursive"
         android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorTitle"
         android:textSize="45dp"
         android:textStyle="bold" />
 
@@ -26,10 +26,9 @@
         android:layout_marginTop="5dp"
         android:padding="5dp"
         android:layout_margin="10dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Sign in"
-        android:textColor="#ffffff"
-        android:textSize="27dp" />
+        android:text="Fill information to register"
+        android:textColor="@color/colorWhite"
+        android:textSize="22dp" />
 
     <EditText
         android:id="@+id/email"
@@ -70,11 +69,21 @@
         android:hint="Confirm Password"
         android:inputType="textPassword"/>
 
+    <EditText
+        android:id="@+id/answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:hint="Your favorite food"
+        android:inputType="text"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:padding="10dp">
 
         <Button
