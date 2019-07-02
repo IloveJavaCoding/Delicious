@@ -17,13 +17,14 @@
             android:layout_height="40dp"
             android:src="@drawable/back_black"/>
 
-        <EditText
+        <com.example.delicious.Adapters.DelEditText
             android:id="@+id/Esearch"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:background="@drawable/frame2"
+            android:singleLine="true"
             android:hint="search food, shop name"
             android:paddingLeft="15dp" />
 
