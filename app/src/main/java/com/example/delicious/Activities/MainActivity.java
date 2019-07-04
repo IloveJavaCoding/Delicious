@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Controls;
 
 public class MainActivity extends AppCompatActivity {
-    //private ProgressBar dia;
+    Controls Lock;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +19,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void Init(){
-        //dia = findViewById(R.id.bar);
+        Lock = new Controls();
+
+        //Lock.setRoot("http://10.66.93.27:80/delicious/db/");
+        Lock.setRoot("http://10.71.0.203:80/delicious/db/");//wireless
+        Lock.setLock(0);
+        Lock.setLock2(0);
 
         new Thread(){
             @Override

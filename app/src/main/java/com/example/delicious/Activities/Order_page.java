@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.delicious.Adapters.Myadapter_order;
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.Self_class.Order_record;
@@ -42,10 +43,8 @@ public class Order_page extends AppCompatActivity {
     private String[] ordernumber;
     private Order_record[] orders_all;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-
-    private String path = root1 + "update_order.php";
+    Controls Lock;
+    private String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,18 +68,20 @@ public class Order_page extends AppCompatActivity {
     }
 
     private void Init(){
-        listView = (ListView)findViewById(R.id.Lv1);
+        path = Lock.getRoot() + "update_order.php";
+
+        listView = findViewById(R.id.Lv1);
         listView.setAdapter(new Myadapter_order(Order_page.this, items));
 
-        Ordernum = (TextView)findViewById(R.id.num);
+        Ordernum = findViewById(R.id.num);
         Titems = findViewById(R.id.Tnum);
         Ttotal_price = findViewById(R.id.Tprice);
         Tori_price = findViewById(R.id.Torip);
 
-        Iback = (ImageView) findViewById(R.id.Iback);
-        Breceived = (Button) findViewById(R.id.Breceived);
-        Bt = (RatingBar) findViewById(R.id.bar1);
-        Bs = (RatingBar) findViewById(R.id.bar2);
+        Iback =  findViewById(R.id.Iback);
+        Breceived =  findViewById(R.id.Breceived);
+        Bt = findViewById(R.id.bar1);
+        Bs = findViewById(R.id.bar2);
     }
 
     private void Flash(){

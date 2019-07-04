@@ -7,7 +7,16 @@ import java.util.List;
 public class Controls extends Application {
     private static int lock;
     private static int lock2;
+    private static String root;
     public Controls() {
+    }
+
+    public static String getRoot() {
+        return root;
+    }
+
+    public static void setRoot(String root) {
+        Controls.root = root;
     }
 
     public static int getLock() {

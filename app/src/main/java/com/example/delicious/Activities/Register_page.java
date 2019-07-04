@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.Self_class.SessionHandler;
 
@@ -42,10 +43,8 @@ public class Register_page extends AppCompatActivity {
     private ProgressDialog pDialog;
     private SessionHandler session;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-    private String register_url = root1 + "register.php";
-
+    Controls Lock;
+    private String register_url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,14 +55,16 @@ public class Register_page extends AppCompatActivity {
         SetListener();
     }
     private void Init(){
+        register_url = Lock.getRoot() + "register.php";
+
         etUsername = findViewById(R.id.Rusername);
         etPassword = findViewById(R.id.password1);
         etConfirmPassword = findViewById(R.id.password2);
         etEmail = findViewById(R.id.email);
         etAnswer = findViewById(R.id.answer);
 
-        Bregister = (Button)findViewById(R.id.Bregister);
-        BLogin = (Button)findViewById(R.id.BTologin);
+        Bregister = findViewById(R.id.Bregister);
+        BLogin = findViewById(R.id.BTologin);
     }
 
     private void SetListener(){

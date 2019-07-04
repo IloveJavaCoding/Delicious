@@ -33,10 +33,10 @@ public class Order_history_page extends AppCompatActivity {
     }
 
     private void Init(){
-        listView = (ListView) findViewById(R.id.Lvh);
+        listView = findViewById(R.id.Lvh);
         listView.setAdapter(new Myadapter_order_history(this, orders_checked));
 
-        Iback = (ImageView)findViewById(R.id.Iback);
+        Iback = findViewById(R.id.Iback);
     }
 
     private void SetListener(){

@@ -38,11 +38,9 @@ public class MyCart_page extends AppCompatActivity implements Myadapter_myCart.I
 
     private static Item_info[] items;
     private Order_record[] orders;
-    Controls Lock;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-    private  String path = root1 + "get_all_order.php";
+    Controls Lock;
+    private  String path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +60,7 @@ public class MyCart_page extends AppCompatActivity implements Myadapter_myCart.I
             Lock.setLock2(1);
         }
 
+        path = Lock.getRoot() + "get_all_order.php";
         Get_all_order(path);
     }
 

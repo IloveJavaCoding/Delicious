@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.Self_class.Order_record;
@@ -40,11 +41,9 @@ public class Generate_order_page extends AppCompatActivity {
     private Order_record[] orders;
     private List<String> ordernumber;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-
-    private String path = root1 + "create_order.php";
-    private String path2 = root1 + "create_orders.php";
+    Controls Lock;
+    private String path;
+    private String path2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +64,12 @@ public class Generate_order_page extends AppCompatActivity {
         if(orders.length>0){
             ordernumber = Get_ordernum_list(orders);
         }
-        //Toast.makeText(getApplicationContext(), Integer.toString(items.length), Toast.LENGTH_SHORT).show();
     }
 
     private void Init(){
+        path = Lock.getRoot() + "create_order.php";
+        path2 = Lock.getRoot() + "create_orders.php";
+
         session = new SessionHandler(Generate_order_page.this);
         user = session.getUserDetails();
         Bhome = (Button)findViewById(R.id.Btohome);
@@ -84,18 +85,13 @@ public class Generate_order_page extends AppCompatActivity {
     }
 
     private void Create(){
-        Create_orders(user.getUsername(),order_num, items, path2);
+        //Create_orders(user.getUsername(),order_num, items, path2);
         new Thread(){
             @Override
             public void run() {
                 super.run();
                 for(int i=0; i<items.length; i++){
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    //Create_Order(user.getUsername(),order_num,items[i].getShop_name(),items[i].getIteam_name(),items[i].getPrice(),items[i].getNumber(),items[i].getLink(),path);
+                    Create_Order(user.getUsername(),order_num,items[i].getShop_name(),items[i].getIteam_name(),items[i].getPrice(),items[i].getNumber(),items[i].getLink(),path);
                 }
             }
         }.start();
@@ -171,7 +167,7 @@ public class Generate_order_page extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     if (response.getInt("state") ==1) {
-                        Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                     else {
                         Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();

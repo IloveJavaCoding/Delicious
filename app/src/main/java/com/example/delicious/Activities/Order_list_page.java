@@ -79,7 +79,6 @@ public class Order_list_page extends AppCompatActivity {
 
                 startActivity(intent);
                 finish();
-                //Toast.makeText(getApplicationContext(), items_by_order[0].getShop_name(), Toast.LENGTH_SHORT).show();
             }
         });
     }

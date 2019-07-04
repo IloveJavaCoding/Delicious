@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.Self_class.SessionHandler;
 
@@ -38,12 +39,9 @@ public class Login_page extends AppCompatActivity {
     private String password;
     private ProgressDialog pDialog;
     private SessionHandler session;
+    Controls Lock;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-
-    private String login_url = root1 + "login.php";
-
+    private String login_url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,12 +55,14 @@ public class Login_page extends AppCompatActivity {
         SetListener();
     }
     private void Init(){
+        login_url = Lock.getRoot() + "login.php";
+
         etUsername = findViewById(R.id.username);
         etPassword = findViewById(R.id.password);
 
-        ToRegister = (TextView)findViewById(R.id.tvRegister);
-        ToForget = (TextView)findViewById(R.id.tvForget);
-        Login = (Button)findViewById(R.id.login);
+        ToRegister = findViewById(R.id.tvRegister);
+        ToForget = findViewById(R.id.tvForget);
+        Login = findViewById(R.id.login);
     }
 
     private void SetListener(){
@@ -139,11 +139,9 @@ public class Login_page extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 pDialog.dismiss();
-
                 Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
-
         MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
@@ -160,7 +158,6 @@ public class Login_page extends AppCompatActivity {
         }
         return true;
     }
-
     //forbide the back_white operation;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

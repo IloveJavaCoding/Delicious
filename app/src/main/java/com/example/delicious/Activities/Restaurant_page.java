@@ -66,19 +66,19 @@ public class Restaurant_page extends AppCompatActivity implements Myadapter_rest
         myadapterRestaurant = new Myadapter_restaurant(Restaurant_page.this, items,this);
         listView.setAdapter(myadapterRestaurant);
 
-        Iback = (ImageView)findViewById(R.id.Iback);
-        Iuser = (ImageView)findViewById(R.id.Iuser);
-        Bdetail = (Button)findViewById(R.id.Bdetail);
+        Iback = findViewById(R.id.Iback);
+        Iuser = findViewById(R.id.Iuser);
+        Bdetail = findViewById(R.id.Bdetail);
 
         //--------------------------------------------------
-        linearLayout = (LinearLayout)findViewById(R.id.ly);
-        Ilogo= (ImageView)findViewById(R.id.Ilogo);
-        Sname = (TextView)findViewById(R.id.Tname);
-        Srate = (TextView)findViewById(R.id.Tvalue);
-        Stime = (TextView)findViewById(R.id.Ttime);
-        Titems = (TextView)findViewById(R.id.Titems);
-        TRM = (TextView)findViewById(R.id.TRM);
-        starbar = (RatingBar)findViewById(R.id.bar);
+        linearLayout = findViewById(R.id.ly);
+        Ilogo= findViewById(R.id.Ilogo);
+        Sname = findViewById(R.id.Tname);
+        Srate = findViewById(R.id.Tvalue);
+        Stime = findViewById(R.id.Ttime);
+        Titems = findViewById(R.id.Titems);
+        TRM = findViewById(R.id.TRM);
+        starbar = findViewById(R.id.bar);
 
         Sname.setText(sh.getShop_name());
         Srate.setText(Double.toString(sh.getRate()));
@@ -179,7 +179,6 @@ public class Restaurant_page extends AppCompatActivity implements Myadapter_rest
                 }
                 break;
             case R.id.Iadd:
-                //Toast.makeText(getApplicationContext(),"food_add",Toast.LENGTH_SHORT).show();
                 items[position].setNumber(items[position].getNumber()+1);
                 myadapterRestaurant.notifyDataSetChanged();
                 Flash();

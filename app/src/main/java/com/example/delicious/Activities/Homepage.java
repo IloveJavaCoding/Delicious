@@ -35,13 +35,7 @@ public class Homepage extends AppCompatActivity {
     Item_info[] items,item;
     Controls Lock;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-
-    private String url = root1 + "get_all_shop.php";
-    private String url2 = root1 + "get_item_by_name.php";
-    private String url3 = root1 + "get_all_item.php";
-
+    private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +47,6 @@ public class Homepage extends AppCompatActivity {
     }
 
     private void Get_data(){
-        Get_all_item(url3);
-
         if(Lock.getLock()==0){
             Intent intent = this.getIntent();
             Bundle bundle = intent.getExtras();
@@ -64,10 +56,12 @@ public class Homepage extends AppCompatActivity {
     }
 
     private void Init(){
-        Isearch = (ImageView) findViewById(R.id.Isearch);
-        Iuser = (ImageView) findViewById(R.id.Iusername);
+        url = Lock.getRoot() + "get_all_item.php";
+        Get_all_item(url);
+        Isearch =  findViewById(R.id.Isearch);
+        Iuser =  findViewById(R.id.Iusername);
 
-        gridView =(GridView)findViewById(R.id.gar);
+        gridView = findViewById(R.id.gar);
         gridView.setAdapter( new Myadapter_home(Homepage.this,sh));
     }
 
@@ -105,7 +99,6 @@ public class Homepage extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent = null;
-            Bundle bundle;
             switch (v.getId()) {
                 case R.id.Isearch:
                     intent = new Intent(Homepage.this, Search_Page.class);
@@ -124,7 +117,7 @@ public class Homepage extends AppCompatActivity {
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, path, request,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                JSONArray acc = null;
+                JSONArray acc;
                 try {
                     if (response.getInt("state") ==1) {
                         acc = response.getJSONArray("item");
@@ -154,7 +147,7 @@ public class Homepage extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Homepage.this,"Error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Homepage.this,"No Internet",Toast.LENGTH_SHORT).show();
             }
         });
 

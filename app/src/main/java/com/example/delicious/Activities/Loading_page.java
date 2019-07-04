@@ -25,10 +25,7 @@ public class Loading_page extends AppCompatActivity {
     Shop_Info[] sh;
     Controls Lock;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-
-    private String url = root1 + "get_all_shop.php";
+    private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +34,10 @@ public class Loading_page extends AppCompatActivity {
         Init();
         Jump();
     }
-
     private void Init(){
+        url = Lock.getRoot() + "get_all_shop.php";
         Get_all_shop(url);
         show = (TextView)findViewById(R.id.tv);
-        Lock = new Controls();
     }
 
     private void Jump(){
@@ -53,8 +49,6 @@ public class Loading_page extends AppCompatActivity {
                     try {
                         Thread.sleep(500);
                         Intent intent = new Intent(Loading_page.this, Homepage.class);
-                        Lock.setLock(0);
-                        Lock.setLock2(0);
 
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("shops",sh);
@@ -77,7 +71,7 @@ public class Loading_page extends AppCompatActivity {
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(Request.Method.GET, path, request,new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                JSONArray acc = null;
+                JSONArray acc;
                 try {
                     if (response.getInt("state") ==1) {
                         acc = response.getJSONArray("shop");

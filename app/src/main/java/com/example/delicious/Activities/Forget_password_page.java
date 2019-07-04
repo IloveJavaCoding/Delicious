@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.MySingleton;
 
 import org.json.JSONException;
@@ -25,10 +26,8 @@ public class Forget_password_page extends AppCompatActivity {
     private TextView Result;
     private EditText Eusername, Eanswer, Epassword, Econfirm_password;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-
-    private String path = root1 + "forget_password.php";
+    Controls Lock;
+    private String path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +38,8 @@ public class Forget_password_page extends AppCompatActivity {
     }
 
     private void Init(){
+        path = Lock.getRoot() + "forget_password.php";
+
         BLogin = findViewById(R.id.BTologin);
         Bchange = findViewById(R.id.Bchange);
         Result = findViewById(R.id.result);

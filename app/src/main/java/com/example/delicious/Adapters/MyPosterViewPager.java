@@ -20,7 +20,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MyPosterViewPager extends RelativeLayout {
-    private static final int[] IMAGE_IDS = {R.drawable.ad, R.drawable.ad1,R.drawable.ad1,R.drawable.ad2, R.drawable.ad3};
+    private static final int[] IMAGE_IDS = {R.drawable.ad, R.drawable.ad1,R.drawable.ad2,R.drawable.ad3, R.drawable.ad4};
     // 点点的大小
     private static final int DOT_IV_SIZE = 10;
     // 点点的间距

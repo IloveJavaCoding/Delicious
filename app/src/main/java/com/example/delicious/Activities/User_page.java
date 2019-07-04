@@ -40,11 +40,8 @@ public class User_page extends AppCompatActivity {
     private Item_info[] items;
     Controls Lock;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-
-    private String path = root1 + "get_all_order.php";
-    private String path2 = root1 + "get_all_item.php";
+    private String path;
+    private String path2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,16 +55,18 @@ public class User_page extends AppCompatActivity {
         SetListener();
     }
     private void Init(){
+        path = Lock.getRoot() + "get_all_order.php";
+        path2 = Lock.getRoot() + "get_all_item.php";
         Get_all_order(path);
         Get_all_item(path2);
 
         Iback = findViewById(R.id.Iback);
-        Iexit = (ImageView)findViewById(R.id.Iexit);
-        TUsername = (TextView)findViewById(R.id.Tuser);
-        Torder = (TextView)findViewById(R.id.Torder);
-        Tcart = (TextView)findViewById(R.id.Tcart);
-        Thistory = (TextView)findViewById(R.id.Thistory);
-        TLogout= (TextView)findViewById(R.id.logout);
+        Iexit = findViewById(R.id.Iexit);
+        TUsername = findViewById(R.id.Tuser);
+        Torder = findViewById(R.id.Torder);
+        Tcart = findViewById(R.id.Tcart);
+        Thistory = findViewById(R.id.Thistory);
+        TLogout= findViewById(R.id.logout);
 
         TUsername.setText(user.getUsername());
     }

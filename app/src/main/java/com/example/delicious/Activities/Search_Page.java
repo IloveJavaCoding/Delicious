@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.delicious.Adapters.Myadapter_search;
 import com.example.delicious.R;
+import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.Self_class.MySingleton;
 import com.example.delicious.Self_class.Shop_Info;
@@ -38,23 +39,24 @@ public class Search_Page extends AppCompatActivity {
     Item_info[] items,item,item_one;
     Shop_Info[] shops;
 
-    private final String root1 = "http://10.66.93.27:80/delicious/db/";
-    private final String root2 = "http://10.71.0.203:80/delicious/db/";
-
-    private String path = root1 + "get_all_item.php";
-    private String path2 = root1 + "get_all_shop.php";
+    Controls Lock;
+    private String path;
+    private String path2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
 
-        Get_all_item(path);
-        Get_all_shop(path2);
         Init();
         SetListener();
     }
 
     private void Init(){
+        path = Lock.getRoot() + "get_all_item.php";
+        path2 = Lock.getRoot() + "get_all_shop.php";
+        Get_all_item(path);
+        Get_all_shop(path2);
+
         listView = findViewById(R.id.list);
         Iback =  findViewById(R.id.Iback);
         Tsearch =  findViewById(R.id.Tsearch);
