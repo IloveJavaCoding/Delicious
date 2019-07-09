@@ -5,21 +5,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/user_bg"
     android:orientation="vertical"
-    android:padding="10dp"
     tools:context=".Activities.User_page">
-
-    <ImageView
-        android:id="@+id/Iback"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="5dp"
-        android:src="@drawable/back_white"/>
 
     <ImageView
         android:id="@+id/Luser"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:src="@drawable/user_portrait"
         android:scaleType="fitCenter"/>
 
@@ -39,6 +32,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:orientation="vertical">
 
 
@@ -129,12 +123,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_gravity="center"
+            android:padding="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -155,8 +151,102 @@
                 android:src="@drawable/user_exit"
                 android:scaleType="fitCenter"/>
         </LinearLayout>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="5dp"
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:id="@+id/l_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_home"
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_home"/>
+
+            <TextView
+                android:id="@+id/tv_home"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_find"
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_find"/>
+
+            <TextView
+                android:id="@+id/tv_find"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="Find"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_cart"
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_cart"/>
+
+            <TextView
+                android:id="@+id/tv_cart"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="Cart"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l_my"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon_my"
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_user"/>
+
+            <TextView
+                android:id="@+id/tv_my"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="My"
+                android:textAlignment="center"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

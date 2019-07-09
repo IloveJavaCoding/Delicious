@@ -11,5 +11,6 @@
     <color name="colorGery">#CFCFCF</color>
     <color name="colorGolden">#FFEB3B</color>
     <color name="colorBlue">#66ccff</color>
+    <color name="colorRed">#ff0000</color>
     <color name="colorDeepBlue">#2B76E7</color>
 </resources>

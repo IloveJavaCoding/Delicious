@@ -1,11 +1,14 @@
 package com.example.delicious.Activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,10 +33,11 @@ import java.util.List;
 
 public class MyCart_page extends AppCompatActivity implements Myadapter_myCart.InListener {
     private ListView listView;
+    private LinearLayout l_find, l_home, l_my;
     private Myadapter_myCart myadaptermyCart;
-    private ImageView Iback;
+    private ImageView I_cart;
     private Button BAll;
-    private TextView Tadd_more, Tnum, Tprice, Torprice, Tshow;
+    private TextView Tadd_more, Tnum, Tprice, Torprice, Tshow, tv_cart;
     private final double discount = 0.9;
 
     private static Item_info[] items;
@@ -82,13 +86,21 @@ public class MyCart_page extends AppCompatActivity implements Myadapter_myCart.I
         myadaptermyCart = new Myadapter_myCart(this, items,this);
         listView.setAdapter(myadaptermyCart);
 
-        Iback = (ImageView)findViewById(R.id.Iback);
         BAll = (Button) findViewById(R.id.Ball);
         Tadd_more = (TextView) findViewById(R.id.Tadd_more);
         Tnum = (TextView) findViewById(R.id.Tnum);
         Tprice = (TextView) findViewById(R.id.Tprice);
         Torprice = (TextView) findViewById(R.id.Torip);
         Tshow = (TextView)findViewById(R.id.Tshow);
+
+        I_cart = findViewById(R.id.icon_cart);
+        I_cart.setImageDrawable(getResources().getDrawable(R.drawable.icon_cart2));
+        tv_cart = findViewById(R.id.tv_cart);
+        tv_cart.setTextColor(Color.argb(255,26,132,216));
+
+        l_home = findViewById(R.id.l_home);
+        l_find = findViewById(R.id.l_find);
+        l_my = findViewById(R.id.l_my);
 
         if(items.length<1){
             Tshow.setVisibility(View.VISIBLE);
@@ -97,10 +109,26 @@ public class MyCart_page extends AppCompatActivity implements Myadapter_myCart.I
     }
 
     private void SetListener(){
-        Iback.setOnClickListener(new View.OnClickListener() {
+        l_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyCart_page.this, Homepage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        l_find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyCart_page.this, Find_page.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        l_my.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyCart_page.this, User_page.class);
                 startActivity(intent);
                 finish();
             }
@@ -119,10 +147,7 @@ public class MyCart_page extends AppCompatActivity implements Myadapter_myCart.I
                     startActivity(intent);
                     finish();
                 }else{
-
                     Toast.makeText(getApplicationContext(),"You have chosen nothing!!!",Toast.LENGTH_SHORT).show();
-                   // Toast.makeText(getApplicationContext(),name,Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
@@ -238,5 +263,13 @@ public class MyCart_page extends AppCompatActivity implements Myadapter_myCart.I
             default:
                 break;
         }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            moveTaskToBack(true);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);//continue other things
     }
 }

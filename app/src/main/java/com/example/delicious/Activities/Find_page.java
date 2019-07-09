@@ -2,11 +2,11 @@ package com.example.delicious.Activities;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,95 +17,65 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.delicious.Adapters.Myadapter_home;
+import com.example.delicious.Adapters.Myadapter_find;
 import com.example.delicious.R;
 import com.example.delicious.Self_class.Controls;
 import com.example.delicious.Self_class.Item_info;
 import com.example.delicious.Self_class.MySingleton;
-import com.example.delicious.Self_class.Shop_Info;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
-public class Homepage extends AppCompatActivity {
-    private ImageView Isearch, Ihome;
-    private LinearLayout l_find, l_cart, l_my;
-    private TextView tv_home;
+public class Find_page extends AppCompatActivity {
+    private LinearLayout l_home, l_my, l_cart;
+    private Myadapter_find myadapter_find;
     private GridView gridView;
-    private static Shop_Info[] sh;
-    Item_info[] items,item;
+    private ImageView I_find;
+    private TextView tv_find;
+    private Button button;
+    private Item_info[] items;
     Controls Lock;
 
-    private String url;
+    private String path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
+        setContentView(R.layout.activity_find_page);
 
-        Get_data();
         Init();
         SetListener();
     }
 
-    private void Get_data(){
-        if(Lock.getLock()==0){
-            Intent intent = this.getIntent();
-            Bundle bundle = intent.getExtras();
-            sh = (Shop_Info[])bundle.getSerializable("shops");
-            Lock.setLock(1);
-        }
-    }
-
     private void Init(){
-        url = Lock.getRoot() + "get_all_item.php";
-        Get_all_item(url);
-        Isearch =  findViewById(R.id.Isearch);
-        Ihome = findViewById(R.id.icon_home);
-        Ihome.setImageDrawable(getResources().getDrawable(R.drawable.icon_home2));
-        tv_home = findViewById(R.id.tv_home);
-        tv_home.setTextColor(Color.argb(255,26,132,216));
+        path = Lock.getRoot() + "get_all_item.php";
+        I_find = findViewById(R.id.icon_find);
+        I_find.setImageDrawable(getResources().getDrawable(R.drawable.icon_find2));
+        tv_find = findViewById(R.id.tv_find);
+        tv_find.setTextColor(Color.argb(255,26,132,216));
 
-        gridView = findViewById(R.id.gar);
-        gridView.setAdapter( new Myadapter_home(Homepage.this,sh));
-
-        l_find = findViewById(R.id.l_find);
+        l_home = findViewById(R.id.l_home);
         l_cart = findViewById(R.id.l_cart);
         l_my = findViewById(R.id.l_my);
+
+        button = findViewById(R.id.b1);
+        gridView = findViewById(R.id.gridview);
+        Get_all_item(path);
     }
 
-    private void SetListener() {
+    private void SetListener(){
         OnClick onclick = new OnClick();
-        Isearch.setOnClickListener(onclick);
-        l_find.setOnClickListener(onclick);
+        l_home.setOnClickListener(onclick);
         l_cart.setOnClickListener(onclick);
         l_my.setOnClickListener(onclick);
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            Intent intent = null;
-            Bundle bundle = null;
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*
-                if(position%2 ==0){
-                    intent = new Intent(Homepage.this, Restaurant1.class);
-                }else{
-                    intent = new Intent(Homepage.this, Restaurant_page.class);
-                }
-                */
-                intent = new Intent(Homepage.this, Restaurant_page.class);
-                item = Get_items_oneshop(sh[position].getShop_name(),items);
-                bundle = new Bundle();
-                bundle.putSerializable("shop",sh);
-                bundle.putInt("index",position);
-                bundle.putSerializable("item",item);
-                intent.putExtras(bundle);
-
-                startActivity(intent);
-                finish();
+            public void onClick(View v) {
+                myadapter_find = new Myadapter_find(Find_page.this, items);
+                gridView.setAdapter(myadapter_find);
             }
         });
     }
@@ -116,22 +86,20 @@ public class Homepage extends AppCompatActivity {
             Intent intent = null;
             Bundle bundle;
             switch (v.getId()) {
-                case R.id.Isearch:
-                    intent = new Intent(Homepage.this, Search_Page.class);
+                case R.id.l_home:
+                    intent = new Intent(Find_page.this, Homepage.class);
                     break;
                 case R.id.l_my:
-                    intent = new Intent(Homepage.this, User_page.class);
+                    intent = new Intent(Find_page.this, User_page.class);
                     break;
                 case R.id.l_cart:
-                    intent = new Intent(Homepage.this, MyCart_page.class);
+                    intent = new Intent(Find_page.this, MyCart_page.class);
                     if(Lock.getLock2()==0){
+                        items = new Item_info[0];
                         bundle = new Bundle();
                         bundle.putSerializable("food",items);
                         intent.putExtras(bundle);
                     }
-                    break;
-                case R.id.l_find:
-                    intent = new Intent(Homepage.this, Find_page.class);
                     break;
             }
             startActivity(intent);
@@ -165,7 +133,7 @@ public class Homepage extends AppCompatActivity {
                         }
                     }
                     else {
-                        Toast.makeText(Homepage.this, response.getString("message"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -174,28 +142,13 @@ public class Homepage extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Homepage.this,"No Internet",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"No Internet",Toast.LENGTH_SHORT).show();
             }
         });
 
         MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
-    private Item_info[] Get_items_oneshop(String name,Item_info[] item ){
-        List<Item_info> list = new ArrayList<Item_info>();
-        int num=0;
-        for(int i=0; i<item.length; i++){
-            if(item[i].getShop_name().equals(name)){
-                list.add(item[i]);
-                num++;
-            }
-        }
-        Item_info[] ite = list.toArray(new Item_info[num]);
-
-        return ite;
-    }
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
             moveTaskToBack(true);

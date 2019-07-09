@@ -2,11 +2,14 @@ package com.example.delicious.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +33,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User_page extends AppCompatActivity {
-    private ImageView Iexit, Iback;
-    private TextView TUsername, TLogout;
+    private ImageView Iexit, I_my;
+    private LinearLayout l_home, l_find, l_cart;
+    private TextView TUsername, TLogout, tv_my;
     private TextView Torder, Tcart, Thistory;
     private SessionHandler session;
     private User user;
@@ -60,13 +64,21 @@ public class User_page extends AppCompatActivity {
         Get_all_order(path);
         Get_all_item(path2);
 
-        Iback = findViewById(R.id.Iback);
         Iexit = findViewById(R.id.Iexit);
         TUsername = findViewById(R.id.Tuser);
         Torder = findViewById(R.id.Torder);
         Tcart = findViewById(R.id.Tcart);
         Thistory = findViewById(R.id.Thistory);
         TLogout= findViewById(R.id.logout);
+
+        I_my = findViewById(R.id.icon_my);
+        I_my.setImageDrawable(getResources().getDrawable(R.drawable.icon_my2));
+        tv_my = findViewById(R.id.tv_my);
+        tv_my.setTextColor(Color.argb(255,26,132,216));
+
+        l_find = findViewById(R.id.l_find);
+        l_cart = findViewById(R.id.l_cart);
+        l_home = findViewById(R.id.l_home);
 
         TUsername.setText(user.getUsername());
     }
@@ -82,7 +94,6 @@ public class User_page extends AppCompatActivity {
 
     private void SetListener(){
         OnClick onclick = new OnClick();
-        Iback.setOnClickListener(onclick);
         Torder.setOnClickListener(onclick);
         Tcart.setOnClickListener(onclick);
         Thistory.setOnClickListener(onclick);
@@ -98,6 +109,10 @@ public class User_page extends AppCompatActivity {
                 ShowDialog();
             }
         });
+
+        l_home.setOnClickListener(onclick);
+        l_find.setOnClickListener(onclick);
+        l_cart.setOnClickListener(onclick);
     }
 
     private class OnClick implements View.OnClickListener {
@@ -106,10 +121,11 @@ public class User_page extends AppCompatActivity {
             Intent intent = null;
             Bundle bundle;
             switch (v.getId()) {
-                case R.id.Iback:
+                case R.id.l_home:
                     intent = new Intent(User_page.this, Homepage.class);
                     break;
                 case R.id.Tcart:
+                case R.id.l_cart:
                     intent = new Intent(User_page.this, MyCart_page.class);
                     if(Lock.getLock2()==0){
                         bundle = new Bundle();
@@ -136,6 +152,10 @@ public class User_page extends AppCompatActivity {
                     bundle.putSerializable("orders_checked", order_checked);
                     intent.putExtras(bundle);
                     break;
+                case R.id.l_find:
+                    intent = new Intent(User_page.this, Find_page.class);
+                    break;
+
             }
             startActivity(intent);
             finish();
@@ -316,5 +336,13 @@ public class User_page extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            moveTaskToBack(true);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);//continue other things
     }
 }

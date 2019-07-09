@@ -4,67 +4,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.Homepage">
+    tools:context=".Activities.Find_page">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/colorTheme"
-        android:orientation="horizontal"
-        android:padding="5dp">
-
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/app_name"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp" />
+            android:background="@color/colorTheme"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                android:layout_margin="5dp"/>
 
-        <ImageView
-            android:id="@+id/Isearch"
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:src="@drawable/search"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
-            android:scaleType="fitCenter"/>
+            <Button
+                android:id="@+id/b1"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Generate"/>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ring"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/dianzan"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommended for You"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ring"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:numColumns="2"
+            android:columnWidth="20dp"></GridView>
+       
     </LinearLayout>
 
-    <com.example.delicious.Adapters.MyPosterViewPager
-        android:layout_width="match_parent"
-        android:layout_height="190dp">
-    </com.example.delicious.Adapters.MyPosterViewPager>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@drawable/underline3"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:background="@color/colorWhite"/>
-    <GridView
-        android:id="@+id/gar"
-        android:background="@color/colorGery"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:paddingTop="12dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:numColumns="2">
-    </GridView>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         android:padding="5dp"
         android:orientation="horizontal">
 
@@ -156,5 +177,4 @@
                 android:textAlignment="center"/>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
