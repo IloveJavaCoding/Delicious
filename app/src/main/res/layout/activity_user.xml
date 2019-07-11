@@ -3,38 +3,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/user_bg"
     android:orientation="vertical"
     tools:context=".Activities.User_page">
-
-    <ImageView
-        android:id="@+id/Luser"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/user_portrait"
-        android:scaleType="fitCenter"/>
-
-    <TextView
-        android:id="@+id/Tuser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="20dp"
-        android:text="Username"
-        android:textColor="@color/colorTheme"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_margin="20dp"
+            android:src="@drawable/user_alarm"
+            android:scaleType="fitCenter"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Tuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:text="Username"
+            android:textColor="@color/colorBlack"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/Luser"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/user_portrait"
+            android:scaleType="fitCenter"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,14 +69,22 @@
                 android:scaleType="fitCenter"/>
             <TextView
                 android:id="@+id/Torder"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="10dp"
                 android:text="My order"
                 android:gravity="bottom"
-                android:textColor="@color/colorWhite"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textColor="@color/colorBlack"
+                android:textSize="25dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:src="@drawable/user_arrow"
+                android:scaleType="fitCenter"/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -66,21 +95,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/cart"
+                android:padding="5dp"
+                android:src="@drawable/icon_cart2"
                 android:scaleType="fitCenter"/>
+
             <TextView
                 android:id="@+id/Tcart"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="10dp"
                 android:text="My cart"
                 android:layout_gravity="bottom"
-                android:textColor="@color/colorWhite"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textColor="@color/colorBlack"
+                android:textSize="25dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:src="@drawable/user_arrow"
+                android:scaleType="fitCenter"/>
         </LinearLayout>
 
         <View
@@ -98,26 +138,64 @@
                 android:padding="5dp"
                 android:src="@drawable/user_history"
                 android:scaleType="fitCenter"/>
+
             <TextView
                 android:id="@+id/Thistory"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="10dp"
                 android:text="Order history"
                 android:gravity="bottom"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlack"
                 android:textSize="25dp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                />
-        </LinearLayout>
+                android:layout_gravity="center" />
 
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:src="@drawable/user_arrow"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@drawable/underline"
-            />
+            android:background="@drawable/underline" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/Iexit"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="5dp"
+                android:src="@drawable/user_exit"
+                android:scaleType="fitCenter"/>
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="Logout"
+                android:textColor="@color/colorBlack"
+                android:textSize="25dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:src="@drawable/user_arrow"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -125,32 +203,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:padding="10dp"
-                android:text="Logout"
-                android:textColor="@color/colorWhite"
-                android:textSize="25dp"
-                android:textStyle="bold" />
-            <ImageView
-                android:id="@+id/Iexit"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:src="@drawable/user_exit"
-                android:scaleType="fitCenter"/>
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

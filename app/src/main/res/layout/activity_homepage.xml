@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorTheme"
         android:orientation="horizontal"
         android:padding="5dp">
@@ -17,9 +17,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/app_name"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
+            android:text="Home"
+            android:textColor="@color/colorWhite"
+            android:padding="3dp"
+            android:textSize="25dp"
             android:textStyle="bold"
             android:layout_marginLeft="10dp" />
 
