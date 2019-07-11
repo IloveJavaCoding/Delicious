@@ -83,7 +83,7 @@ public class Search_Page extends AppCompatActivity {
                 if(!keyword.equals("")){
                     item = Get_items_keyword(keyword,items);
                     if(item.length<1){
-                        Toast.makeText(getApplicationContext(),"No march!!!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"No match!!!!", Toast.LENGTH_SHORT).show();
                     }else{
                         view1.setVisibility(View.VISIBLE);
                         view2.setVisibility(View.VISIBLE);
