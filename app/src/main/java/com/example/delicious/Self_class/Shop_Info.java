@@ -8,16 +8,22 @@ public class Shop_Info implements Serializable {
     private String genre;
     private double rate;
     private String open_time;
+    private String logo_link;
+    private String bg_link;
+    private String genre_link;
 
     public Shop_Info() {
     }
 
-    public Shop_Info(String id, String shop_name, String genre, double rate, String open_time) {
+    public Shop_Info(String id, String shop_name, String genre, float rate, String open_time, String logo_link,String bg_link, String genre_link) {
         this.id = id;
         this.shop_name = shop_name;
         this.genre = genre;
         this.rate = rate;
         this.open_time = open_time;
+        this.logo_link = logo_link;
+        this.bg_link = bg_link;
+        this.genre_link = genre_link;
     }
 
     public String getId() {
@@ -58,5 +64,29 @@ public class Shop_Info implements Serializable {
 
     public void setOpen_time(String open_time) {
         this.open_time = open_time;
+    }
+
+    public String getLogo_link() {
+        return logo_link;
+    }
+
+    public void setLogo_link(String logo_link) {
+        this.logo_link = logo_link;
+    }
+
+    public String getBg_link() {
+        return bg_link;
+    }
+
+    public void setBg_link(String bg_link) {
+        this.bg_link = bg_link;
+    }
+
+    public String getGenre_link() {
+        return genre_link;
+    }
+
+    public void setGenre_link(String genre_link) {
+        this.genre_link = genre_link;
     }
 }

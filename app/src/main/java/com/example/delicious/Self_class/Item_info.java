@@ -6,24 +6,34 @@ public class Item_info implements Serializable {
     private String shop_name;
     private String iteam_name;
     private double price;
-    private String tag;
+    private int number;
+    private String link;
 
     public Item_info() {
     }
 
-    public Item_info(String shop_name, String iteam_name, double price, String tag) {
+    public Item_info(String shop_name, String iteam_name, double price, int num, String link) {
         this.shop_name = shop_name;
         this.iteam_name = iteam_name;
         this.price = price;
-        this.tag = tag;
+        this.number = num;
+        this.link = link;
     }
 
-    public String getTag() {
-        return tag;
+    public String getLink() {
+        return link;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getShop_name() {

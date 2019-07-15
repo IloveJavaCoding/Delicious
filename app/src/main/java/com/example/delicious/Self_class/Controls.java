@@ -6,17 +6,17 @@ import java.util.List;
 
 public class Controls extends Application {
     private static int lock;
-    private static List<String> order;
-
-    public static List<String> getOrder() {
-        return order;
-    }
-
-    public static void setOrder(List<String> order) {
-        Controls.order = order;
-    }
-
+    private static int lock2;
+    private static String root;
     public Controls() {
+    }
+
+    public static String getRoot() {
+        return root;
+    }
+
+    public static void setRoot(String root) {
+        Controls.root = root;
     }
 
     public static int getLock() {
@@ -25,5 +25,13 @@ public class Controls extends Application {
 
     public static void setLock(int lock) {
         Controls.lock = lock;
+    }
+
+    public static int getLock2() {
+        return lock2;
+    }
+
+    public static void setLock2(int lock2) {
+        Controls.lock2 = lock2;
     }
 }

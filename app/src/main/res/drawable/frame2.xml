@@ -6,12 +6,11 @@
         android:color="#BBBBB4" />
 
     <corners
-        android:radius="20dp"/>
+        android:radius="15dp"/>
 
     <gradient
         android:startColor="@color/colorGery"
         android:centerColor="@color/colorGery"
         android:endColor="@color/colorGery"/>
-
 </shape>
 

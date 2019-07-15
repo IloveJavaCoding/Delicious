@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Order_state">
+    tools:context=".Activities.Generate_order_page">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:text="CONGRATULATIONS"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:textColor="#ffffff"
+            android:textColor="@color/colorWhite"
             android:textAlignment="center" />
     </LinearLayout>
 
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#BCF0D414">
+        android:background="@color/colorWhite">
 
         <TextView
             android:id="@+id/tv1"
@@ -54,11 +54,11 @@
             android:padding="5dp"/>
 
         <TextView
-            android:id="@+id/Torder"
+            android:id="@+id/Tordernum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="XDS142857"
+            android:text="..."
             android:textStyle="bold"
             android:textColor="@color/colorTheme"
             android:textSize="25dp"
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:src="@drawable/smile"
+                android:src="@drawable/order_smile"
                 android:scaleType="centerInside"/>
         </LinearLayout>
 
@@ -101,13 +101,12 @@
         <Button
             android:id="@+id/Btohome"
             android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
             android:text="Back to Home"
             android:textColor="@color/colorWhite"
             android:background="@color/colorTheme"/>
-
     </LinearLayout>
 
 </LinearLayout>

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.common.SearchPage">
+    android:orientation="vertical"
+    tools:context=".Activities.Search_Page">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,17 +15,18 @@
             android:id="@+id/Iback"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/back2"/>
+            android:src="@drawable/back_black"/>
 
-        <EditText
+        <com.example.delicious.Adapters.DelEditText
             android:id="@+id/Esearch"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:background="@drawable/frame2"
-            android:hint="search food, restarant"
-            android:padding="5dp" />
+            android:singleLine="true"
+            android:hint="search food, shop name"
+            android:paddingLeft="15dp" />
 
         <TextView
             android:id="@+id/Tsearch"
@@ -35,7 +37,27 @@
             android:text="Search"
             android:textStyle="bold"
             android:textSize="20dp"/>
-
     </LinearLayout>
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/underline2"
+        android:visibility="invisible"/>
+
+    <ListView
+        android:id="@+id/list"
+        android:dividerHeight="1dp"
+        android:divider="@color/colorGery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/underline2"
+        android:visibility="invisible"/>
 </LinearLayout>

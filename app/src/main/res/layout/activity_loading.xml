@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".Home.Loading">
+    tools:context=".Activities.Loading_page">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             style="?android:attr/progressBarStyleLargeInverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/colorText"
+            android:indeterminateTint="@color/colorTheme"
             android:layout_gravity="center"
             android:visibility="visible"/>
         <TextView

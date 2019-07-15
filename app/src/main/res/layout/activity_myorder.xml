@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Myorder.Myorder">
+    tools:context=".Activities.Order_page">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -17,7 +17,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="5dp"
-            android:src="@drawable/back"/>
+            android:src="@drawable/back_white"/>
 
         <TextView
             android:id="@+id/num"
@@ -34,7 +34,8 @@
     <ListView
         android:id="@+id/Lv1"
         android:layout_width="match_parent"
-        android:layout_height="260dp">
+        android:layout_height="220dp"
+        android:layout_weight="1">
     </ListView>
 
     <View
@@ -83,7 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="3"
+                        android:text="0"
                         android:textColor="@color/colorText"
                         android:textSize="20dp" />
 
@@ -109,7 +110,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="13.00"
+                        android:text="0.00"
                         android:textColor="@color/colorText"
                         android:textSize="20dp" />
                 </LinearLayout>
@@ -121,8 +122,8 @@
                     android:layout_gravity="right"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/underline2"
-                    android:text="15.00"
-                    android:textColor="#80EC6A6A"
+                    android:text=""
+                    android:textColor="@color/colorGery"
                     android:textSize="20dp" />
 
             </LinearLayout>
@@ -204,28 +205,18 @@
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:background="@drawable/underline2"/>
-    <TextView
-        android:id="@+id/tv7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Thank you!"
-        android:textSize="22dp"
-        android:textAlignment="center"
-        android:textColor="@color/colorText"/>
 
     <Button
         android:id="@+id/Breceived"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_margin="20dp"
         android:layout_gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="I Received"
         android:textSize="20dp"
         android:textColor="@color/colorWhite"
-        android:background="@color/colorText"
-        />
+        android:background="@color/colorTheme" />
 
 </LinearLayout>

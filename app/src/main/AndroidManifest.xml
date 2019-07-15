@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.example.delicious.Self_class.Controls"
+        android:name=".Self_class.Controls"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,25 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.delicious.Order_List.Order_list"></activity>
-        <activity android:name="com.example.delicious.Home.Loading" />
-        <activity android:name="com.example.delicious.Sign_In.Forgetpage" />
-        <activity android:name="com.example.delicious.History.Order_history" />
-        <activity android:name="com.example.delicious.Myorder.Myorder" />
-        <activity android:name="com.example.delicious.Restaurant_2.Restaurant2" />
-        <activity android:name="com.example.delicious.ui.common.SearchPage" />
-        <activity android:name="com.example.delicious.Order_state" />
-        <activity android:name="com.example.delicious.Check.Check" />
-        <activity android:name="com.example.delicious.Cart.Cart" />
-        <activity android:name="com.example.delicious.Restaurant_1.Restaurant1" />
-        <activity android:name="com.example.delicious.Homepage" />
-        <activity android:name="com.example.delicious.Signout.Logout3" />
-        <activity android:name="com.example.delicious.Signout.Logout2" />
-        <activity android:name="com.example.delicious.Signout.Logout1" />
-        <activity android:name="com.example.delicious.Sign_In.Registerpag" />
-        <activity android:name="com.example.delicious.Sign_In.Loginpag" />
+        <activity android:name=".Activities.Find_page"></activity>
+        <activity android:name=".Activities.Order_list_page" />
+        <activity android:name=".Activities.Loading_page" />
+        <activity android:name=".Activities.Forget_password_page" />
+        <activity android:name=".Activities.Order_history_page" />
+        <activity android:name=".Activities.Order_page" />
+        <activity android:name=".Activities.Restaurant_page" />
+        <activity android:name=".Activities.Search_Page" />
+        <activity android:name=".Activities.Generate_order_page" />
+        <activity android:name=".Check.Check" />
+        <activity android:name=".Activities.MyCart_page" />
+        <activity android:name=".Restaurant_1.Restaurant1" />
+        <activity android:name=".Activities.Homepage" />
+        <activity android:name=".Activities.Bye_page" />
+        <activity android:name=".Activities.User_page" />
+        <activity android:name=".Activities.Register_page" />
+        <activity android:name=".Activities.Login_page" />
         <activity
-            android:name="com.example.delicious.Sign_In.MainActivity"
+            android:name=".Activities.MainActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
